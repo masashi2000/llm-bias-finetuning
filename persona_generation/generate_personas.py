@@ -2,6 +2,7 @@ import sys
 import csv
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+from tqdm import tqdm  # tqdmで進捗バーを表示
 
 def main():
     if len(sys.argv) != 2:
@@ -39,13 +40,19 @@ def main():
         'pad_token_id': tokenizer.eos_token_id
     }
 
+    # プロンプトのトークン化
+    prompt_tokens = tokenizer(prompt, return_tensors='pt').to(device)
+    prompt_length = prompt_tokens.input_ids.shape[1]
+
     # 50個のペルソナを生成
     personas = []
-    for _ in range(50):
-        inputs = tokenizer(prompt, return_tensors='pt').to(device)
+    for i in tqdm(range(50), desc="Generating personas", unit="persona"):
         with torch.no_grad():
-            outputs = model.generate(**inputs, **generation_kwargs)
-        persona = tokenizer.decode(outputs[0], skip_special_tokens=True)
+            outputs = model.generate(**prompt_tokens, **generation_kwargs)
+        generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+        # プロンプト部分を削除
+        persona = generated_text[len(prompt):].strip()
         personas.append(persona)
 
     # CSVファイルに保存
