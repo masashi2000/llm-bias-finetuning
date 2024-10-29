@@ -1,0 +1,25 @@
+Session,Round,Agent Name,Party,Response
+1,0,Anthony,Democrat,10
+1,0,Ellie,Democrat,9
+1,0,Lillian,Republican,6
+1,0,Isaac,Republican,0
+1,1,Anthony,Democrat,10
+1,1,Ellie,Democrat,9
+1,1,Lillian,Republican,2
+1,1,Isaac,Republican,0
+1,2,Anthony,Democrat,9
+1,2,Ellie,Democrat,10
+1,2,Lillian,Republican,2
+1,2,Isaac,Republican,0
+2,0,Landon,Democrat,10
+2,0,Jayden,Democrat,10
+2,0,Abigail,Republican,2
+2,0,Maya,Republican,6
+2,1,Landon,Democrat,8
+2,1,Jayden,Democrat,10
+2,1,Abigail,Republican,2
+2,1,Maya,Republican,2
+2,2,Landon,Democrat,8
+2,2,Jayden,Democrat,9
+2,2,Abigail,Republican,3
+2,2,Maya,Republican,8

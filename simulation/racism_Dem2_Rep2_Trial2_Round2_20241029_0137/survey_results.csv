@@ -1,0 +1,25 @@
+Session,Round,Agent Name,Party,Response
+1,0,Miles,Democrat,10
+1,0,Hunter,Democrat,9
+1,0,Addison,Republican,1
+1,0,Leah,Republican,0
+1,1,Miles,Democrat,100
+1,1,Hunter,Democrat,10
+1,1,Addison,Republican,2
+1,1,Leah,Republican,2
+1,2,Miles,Democrat,10
+1,2,Hunter,Democrat,10
+1,2,Addison,Republican,2
+1,2,Leah,Republican,2
+2,0,Grace,Democrat,10
+2,0,Abigail,Democrat,10
+2,0,Paislee,Republican,2
+2,0,Julian,Republican,4
+2,1,Grace,Democrat,9
+2,1,Abigail,Democrat,10
+2,1,Paislee,Republican,2
+2,1,Julian,Republican,3
+2,2,Grace,Democrat,10
+2,2,Abigail,Democrat,12
+2,2,Paislee,Republican,2
+2,2,Julian,Republican,2
