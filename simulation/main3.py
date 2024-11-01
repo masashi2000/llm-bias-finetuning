@@ -22,7 +22,7 @@ class Agent:
             temperature=1.0,
             top_p=1,
             max_new_tokens=512,
-            pad_token_id=generator.tokenizer.pad_token_id
+            pad_token_id=generator.model.config.eos_token_id[0]
         )
         return generation[0]['generated_text']
 
@@ -82,7 +82,7 @@ class Session:
             temperature=1.0,
             top_p=1,
             max_new_tokens=50,
-            pad_token_id=generator.tokenizer.pad_token_id
+            pad_token_id=generator.model.config.eos_token_id[0]
         )
         survey_texts = [response['generated_text'] for response in survey_responses]
         self.update_survey_results(survey_texts, round_number=0)
@@ -94,7 +94,7 @@ class Session:
                 temperature=1.0,
                 top_p=1,
                 max_new_tokens=512,
-                pad_token_id=generator.tokenizer.pad_token_id
+                pad_token_id=generator.model.config.eos_token_id[0]
             )
             response_texts = [response['generated_text'] for response in responses]
             self.update_agent_histories(response_texts)
@@ -114,7 +114,7 @@ class Session:
                 temperature=1.0,
                 top_p=1,
                 max_new_tokens=50,
-                pad_token_id=generator.tokenizer.pad_token_id
+                pad_token_id=generator.model.config.eos_token_id[0]
             )
             survey_texts = [response['generated_text'] for response in survey_responses]
             self.update_survey_results(survey_texts, round_number=round_num)
@@ -190,6 +190,7 @@ class Experiment:
         # ラウンドごとにすべてのセッションをバッチ処理する。
         all_conversation_records = []
         # for round_num in tqdm(range(self.round_robin_times + 1), desc="Processing Rounds"):
+        print("\n\n{}\n\n".format(len(sessions)))
         for round_num in range(self.round_robin_times + 1):
             batch_prompts = []
             batch_sessions = []
@@ -204,13 +205,16 @@ class Experiment:
                     batch_prompts.extend(prompts)
                     batch_sessions.extend([(session, "conversation", round_num)] * len(prompts))
 
+            print("\n\n{}\n\n".format(batch_prompts))
             batch_responses = generator(
                 batch_prompts,
+                batch_size=5,
                 temperature=1.0,
                 top_p=1,
                 max_new_tokens=512,
-                pad_token_id=generator.tokenizer.pad_token_id
+                pad_token_id=generator.model.config.eos_token_id[0],
             )
+            print("\n\n end!!!!!!!!")
 
             for (session, task_type, task_round), response in zip(batch_sessions, batch_responses):
                 response_text = response['generated_text']
@@ -260,9 +264,11 @@ def main():
         "text-generation",
         model=model_id,
         device=0 if available_device == "cuda" else -1,
-        torch_dtype=torch.bfloat16
+        torch_dtype=torch.bfloat16,
     )
+    # これがないとバッチ処理がうまくいかない。
     generator.tokenizer.pad_token_id = generator.model.config.eos_token_id[0]
+    generator.tokenizer.padding_side = 'left'
 
     with open(args.instruction_file, 'r', encoding='utf-8') as f:
         instruction_content = f.read()
