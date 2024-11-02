@@ -121,89 +121,101 @@ class Experiment:
 
             sessions.append(session)
 
+        # 初回のアンケート
+        survey_prompts = []
+        agent_session_info = []
+        for session in sessions:
+            for agent in session.agents:
+                question = f"Hi {agent.name}. {session.survey_question}"
+                prompt = agent.construct_survey_prompt(session.conversation_history, question)
+                survey_prompts.append(prompt)
+                agent_session_info.append((agent, session, 0))
+
+        # バッチ処理
+        batch_generations = generator(survey_prompts, temperature=1.0, top_p=1, max_new_tokens=50)
+
+        # 結果の処理
+        for i, generation in enumerate(batch_generations):
+            agent, session, round_num = agent_session_info[i]
+            generated_text = generation['generated_text']
+            response = agent.extract_number_from_response(generated_text)
+            session.survey_results.append({
+                "Session": session.session_number,
+                "Round": round_num,
+                "Agent Name": agent.name,
+                "Party": agent.party,
+                "Response": response
+            })
+
         # ラウンドごとの処理
-        for round_num in range(0, self.round_robin_times + 1):
-            # 初回のアンケート
-            if round_num == 0:
-                survey_prompts = []
-                agent_session_info = []
-                for session in sessions:
-                    for agent in session.agents:
-                        question = f"Hi {agent.name}. {session.survey_question}"
-                        prompt = agent.construct_survey_prompt(session.conversation_history, question)
-                        survey_prompts.append(prompt)
-                        agent_session_info.append((agent, session, round_num))
+        for round_num in range(1, self.round_robin_times + 1):
+            # 各セッションでのエージェントの順序を初期化
+            session_agent_iters = {session: iter(session.agents) for session in sessions}
 
-                # バッチ処理
-                batch_generations = generator(survey_prompts, temperature=1.0, top_p=1, max_new_tokens=50)
+            # アクティブなセッションのリスト
+            active_sessions = sessions[:]
 
-                # 結果の処理
-                for i, generation in enumerate(batch_generations):
-                    agent, session, round_num = agent_session_info[i]
-                    generated_text = generation['generated_text']
-                    response = agent.extract_number_from_response(generated_text)
-                    session.survey_results.append({
-                        "Session": session.session_number,
-                        "Round": round_num,
-                        "Agent Name": agent.name,
-                        "Party": agent.party,
-                        "Response": response
-                    })
-            else:
-                # 会話のラウンド
+            while active_sessions:
                 conversation_prompts = []
                 agent_session_info = []
-                for session in sessions:
-                    agents_order = session.agents[:]
-                    # random.shuffle(agents_order)
-                    for agent in agents_order:
-                        instruction_and_history = f"{session.instruction}\n{session.conversation_history}"
+
+                for session in active_sessions[:]:
+                    try:
+                        agent = next(session_agent_iters[session])
+                        instruction_and_history = f"{session.conversation_history}\n\nHi {agent.name}, based on the above conversation, please follow the instruction below:\n{session.instruction}"
                         prompt = agent.construct_response_prompt(instruction_and_history)
                         conversation_prompts.append(prompt)
                         agent_session_info.append((agent, session, round_num))
+                    except StopIteration:
+                        # このセッションのエージェント全員が発言済み
+                        active_sessions.remove(session)
 
-                # バッチ処理
-                batch_generations = generator(conversation_prompts, temperature=1.0, top_p=1, max_new_tokens=512)
+                if conversation_prompts:
+                    # バッチ処理
+                    batch_generations = generator(conversation_prompts, temperature=1.0, top_p=1, max_new_tokens=512)
 
-                # 結果の処理と会話履歴の更新
-                for i, generation in enumerate(batch_generations):
-                    agent, session, round_num = agent_session_info[i]
-                    assistant_reply = generation['generated_text']
-                    agent_response = agent.extract_response(assistant_reply)
-                    session.conversation_history += f"{agent.name}: {agent_response}\n"
-                    conversation_records.append({
-                        "Session": session.session_number,
-                        "Round": round_num,
-                        "Agent Name": agent.name,
-                        "Party": agent.party,
-                        "Response": agent_response
-                    })
+                    # 結果の処理と会話履歴の更新
+                    for i, generation in enumerate(batch_generations):
+                        agent, session, round_num = agent_session_info[i]
+                        assistant_reply = generation['generated_text']
+                        agent_response = agent.extract_response(assistant_reply)
+                        session.conversation_history += f"{agent.name}: {agent_response}\n"
+                        conversation_records.append({
+                            "Session": session.session_number,
+                            "Round": round_num,
+                            "Agent Name": agent.name,
+                            "Party": agent.party,
+                            "Response": agent_response
+                        })
+                else:
+                    # 全てのセッションで発言が完了
+                    break
 
-                # ラウンド終了後のアンケート
-                survey_prompts = []
-                agent_session_info = []
-                for session in sessions:
-                    for agent in session.agents:
-                        question = f"Hi {agent.name}. {session.survey_question}"
-                        prompt = agent.construct_survey_prompt(session.conversation_history, question)
-                        survey_prompts.append(prompt)
-                        agent_session_info.append((agent, session, round_num))
+            # ラウンド終了後のアンケート
+            survey_prompts = []
+            agent_session_info = []
+            for session in sessions:
+                for agent in session.agents:
+                    question = f"Hi {agent.name}. {session.survey_question}"
+                    prompt = agent.construct_survey_prompt(session.conversation_history, question)
+                    survey_prompts.append(prompt)
+                    agent_session_info.append((agent, session, round_num))
 
-                # バッチ処理
-                batch_generations = generator(survey_prompts, temperature=1.0, top_p=1, max_new_tokens=50)
+            # バッチ処理
+            batch_generations = generator(survey_prompts, temperature=1.0, top_p=1, max_new_tokens=50)
 
-                # 結果の処理
-                for i, generation in enumerate(batch_generations):
-                    agent, session, round_num = agent_session_info[i]
-                    generated_text = generation['generated_text']
-                    response = agent.extract_number_from_response(generated_text)
-                    session.survey_results.append({
-                        "Session": session.session_number,
-                        "Round": round_num,
-                        "Agent Name": agent.name,
-                        "Party": agent.party,
-                        "Response": response
-                    })
+            # 結果の処理
+            for i, generation in enumerate(batch_generations):
+                agent, session, round_num = agent_session_info[i]
+                generated_text = generation['generated_text']
+                response = agent.extract_number_from_response(generated_text)
+                session.survey_results.append({
+                    "Session": session.session_number,
+                    "Round": round_num,
+                    "Agent Name": agent.name,
+                    "Party": agent.party,
+                    "Response": response
+                })
 
         # 結果の保存
         conversation_file = os.path.join(output_dir, "conversation_records.csv")
@@ -250,9 +262,30 @@ def main():
     instruction = '\n'.join(instruction_lines[:-1])
     survey_question = instruction_lines[-1]
 
-    # CSVファイルからリストを読み込む（省略）
+    # CSVファイルからリストを読み込む
+    names_list = []
+    with open('names.csv', 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            names_list.append(row['name'])
 
-    # 出力ディレクトリの作成（省略）
+    democrat_personas_list = []
+    with open('prompt_file_democrat_v2.csv', 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            democrat_personas_list.append(row['Persona'])
+
+    republican_personas_list = []
+    with open('prompt_file_republican_v2.csv', 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            republican_personas_list.append(row['Persona'])
+
+    # 出力ディレクトリの作成
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M')
+    instruction_filename = os.path.basename(args.instruction_file).split('.')[0]
+    output_dir = f"{timestamp}_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
+    os.makedirs(output_dir, exist_ok=True)
 
     experiment = Experiment(
         args.trial_times,
