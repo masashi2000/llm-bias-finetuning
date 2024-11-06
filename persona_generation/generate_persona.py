@@ -32,7 +32,7 @@ personas = []
 prompt = [{"role": "system", "content": "You are a helpful assistant."}]
 prompt.append({"role": "user", "content": prompt_text})
 
-for i in range(50):
+for i in range(100):
     generation = generator(
         prompt,
         temperature=1.0,
