@@ -208,7 +208,7 @@ class Experiment:
             print("\n\n{}\n\n".format(batch_prompts))
             batch_responses = generator(
                 batch_prompts,
-                batch_size=5,
+                batch_size=5, #ここの数値はいろいろ試してみる。もしかしたらGPUのVRAMを見ながらやるといいかもしれない
                 temperature=1.0,
                 top_p=1,
                 max_new_tokens=512,

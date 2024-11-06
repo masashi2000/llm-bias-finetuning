@@ -132,12 +132,19 @@ class Experiment:
                 agent_session_info.append((agent, session, 0))
 
         # バッチ処理
-        batch_generations = generator(survey_prompts, temperature=1.0, top_p=1, max_new_tokens=50)
+        batch_generations = generator(
+                survey_prompts,
+                batch_size=5,
+                temperature=1.0,
+                top_p=1,
+                max_new_tokens=50,
+                pad_token_id=generator.model.config.eos_token_id[0],
+                )
 
         # 結果の処理
         for i, generation in enumerate(batch_generations):
             agent, session, round_num = agent_session_info[i]
-            generated_text = generation['generated_text']
+            generated_text = generation[0]['generated_text'][-1]["content"]
             response = agent.extract_number_from_response(generated_text)
             session.survey_results.append({
                 "Session": session.session_number,
@@ -172,13 +179,20 @@ class Experiment:
 
                 if conversation_prompts:
                     # バッチ処理
-                    batch_generations = generator(conversation_prompts, temperature=1.0, top_p=1, max_new_tokens=512)
+                    batch_generations = generator(
+                            conversation_prompts,
+                            batch_size=5,
+                            temperature=1.0,
+                            top_p=1,
+                            max_new_tokens=512,
+                            pad_token_id=generator.model.config.eos_token_id[0],
+
+                            )
 
                     # 結果の処理と会話履歴の更新
                     for i, generation in enumerate(batch_generations):
                         agent, session, round_num = agent_session_info[i]
-                        assistant_reply = generation['generated_text']
-                        agent_response = agent.extract_response(assistant_reply)
+                        agent_response = generation[0]['generated_text'][-1]["content"]
                         session.conversation_history += f"{agent.name}: {agent_response}\n"
                         conversation_records.append({
                             "Session": session.session_number,
@@ -202,12 +216,19 @@ class Experiment:
                     agent_session_info.append((agent, session, round_num))
 
             # バッチ処理
-            batch_generations = generator(survey_prompts, temperature=1.0, top_p=1, max_new_tokens=50)
+            batch_generations = generator(
+                    survey_prompts,
+                    batch_size=5, # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
+                    temperature=1.0,
+                    top_p=1,
+                    max_new_tokens=50,
+                    pad_token_id=generator.model.config.eos_token_id[0],
+                    )
 
             # 結果の処理
             for i, generation in enumerate(batch_generations):
                 agent, session, round_num = agent_session_info[i]
-                generated_text = generation['generated_text']
+                generated_text = generation[0]['generated_text'][-1]["content"]
                 response = agent.extract_number_from_response(generated_text)
                 session.survey_results.append({
                     "Session": session.session_number,
@@ -245,15 +266,19 @@ def main():
     args = parser.parse_args()
 
     # モデルの初期化
-    model_id = "meta-llama/Llama-2-7b-chat-hf"  # 適切なモデルIDに変更してください
+    model_id = "meta-llama/Llama-3.1-8B-Instruct"  # 適切なモデルIDに変更してください
     available_device = "cuda" if torch.cuda.is_available() else "cpu"
 
     generator = transformers.pipeline(
-        "chat",
+        "text-generation",
         model=model_id,
         device=available_device,
         torch_dtype=torch.bfloat16
     )
+    
+    # これがないとバッチ処理がうまくいかない
+    generator.tokenizer.pad_token_id = generator.model.config.eos_token_id[0]
+    generator.tokenizer.padding_side = 'left'
 
     # インストラクションの読み込み
     with open(args.instruction_file, 'r', encoding='utf-8') as f:

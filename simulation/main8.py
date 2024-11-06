@@ -42,19 +42,36 @@ class Agent:
             return -1
 
 class Session:
-    def __init__(self, session_number, round_robin_times, agents, instruction, survey_question):
+    def __init__(self, session_number, round_robin_times, agents, instruction, survey_question, output_dir):
         self.session_number = session_number
         self.round_robin_times = round_robin_times
         self.instruction = instruction
         self.agents = agents
         self.survey_question = survey_question
         self.conversation_history = ""
-        self.survey_results = []
-        self.conversation_records = []  # 各セッションごとの会話記録を保持
+        self.output_dir = output_dir
+
+        # セッションごとの会話記録ファイルの準備
+        conversation_file = os.path.join(self.output_dir, f"{self.session_number}_conversation_records.csv")
+        self.conversation_fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
+        self.conversation_csvfile = open(conversation_file, 'w', newline='', encoding='utf-8')
+        self.conversation_writer = csv.DictWriter(self.conversation_csvfile, fieldnames=self.conversation_fieldnames)
+        self.conversation_writer.writeheader()
+
+        # セッションごとのアンケート結果ファイルの準備
+        survey_file = os.path.join(self.output_dir, f"{self.session_number}_survey_results.csv")
+        self.survey_fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
+        self.survey_csvfile = open(survey_file, 'w', newline='', encoding='utf-8')
+        self.survey_writer = csv.DictWriter(self.survey_csvfile, fieldnames=self.survey_fieldnames)
+        self.survey_writer.writeheader()
+
+    def close_files(self):
+        self.conversation_csvfile.close()
+        self.survey_csvfile.close()
 
 class Experiment:
     def __init__(self, trial_times, round_robin_times, num_democrat_agents, num_republican_agents,
-                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question):
+                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, output_dir):
         self.trial_times = trial_times
         self.round_robin_times = round_robin_times
         self.num_democrat_agents = num_democrat_agents
@@ -64,17 +81,18 @@ class Experiment:
         self.republican_personas_list = republican_personas_list
         self.instruction = instruction
         self.survey_question = survey_question
+        self.output_dir = output_dir
         self.used_names = set()
         self.used_democrat_personas = set()
         self.used_republican_personas = set()
 
-    def run(self, generator, output_dir):
-        all_survey_results = []
+    def run(self, generator):
         sessions = []
+        all_survey_results = []
 
         # セッションの作成
         for session_number in range(1, self.trial_times + 1):
-            # 名前とペルソナの選択（詳細は省略）
+            # 名前とペルソナの選択
             required_names = self.num_democrat_agents + self.num_republican_agents
             available_names = [name for name in self.names_list if name not in self.used_names]
             if len(available_names) < required_names:
@@ -116,146 +134,124 @@ class Experiment:
                 self.round_robin_times,
                 agents,
                 self.instruction,
-                self.survey_question
+                self.survey_question,
+                self.output_dir
             )
 
             sessions.append(session)
 
-        # 初回のアンケート
-        survey_prompts = []
-        agent_session_info = []
-        for session in sessions:
-            for agent in session.agents:
-                question = f"Hi {agent.name}. {session.survey_question}"
-                prompt = agent.construct_survey_prompt(session.conversation_history, question)
-                survey_prompts.append(prompt)
-                agent_session_info.append((agent, session, 0))
+        try:
+            # 各セッションごとに処理
+            for session in sessions:
+                # 初回のアンケート
+                survey_prompts = []
+                agent_info = []
+                for agent in session.agents:
+                    question = f"Hi {agent.name}. {session.survey_question}"
+                    prompt = agent.construct_survey_prompt(session.conversation_history, question)
+                    survey_prompts.append(prompt)
+                    agent_info.append((agent, session, 0))
 
-        # バッチ処理
-        batch_generations = generator(
-                survey_prompts,
-                batch_size=5,
-                temperature=1.0,
-                top_p=1,
-                max_new_tokens=50,
-                pad_token_id=generator.model.config.eos_token_id[0],
+                # バッチ処理
+                batch_generations = generator(
+                    survey_prompts,
+                    batch_size=5,
+                    temperature=1.0,
+                    top_p=1,
+                    max_new_tokens=50,
+                    pad_token_id=generator.model.config.eos_token_id[0],
                 )
 
-        # 結果の処理
-        for i, generation in enumerate(batch_generations):
-            agent, session, round_num = agent_session_info[i]
-            generated_text = generation[0]['generated_text'][-1]["content"]
-            response = agent.extract_number_from_response(generated_text)
-            session.survey_results.append({
-                "Session": session.session_number,
-                "Round": round_num,
-                "Agent Name": agent.name,
-                "Party": agent.party,
-                "Response": response
-            })
+                # 結果の処理と保存
+                for i, generation in enumerate(batch_generations):
+                    agent, session, round_num = agent_info[i]
+                    generated_text = generation[0]['generated_text'][-1]["content"]
+                    response = agent.extract_number_from_response(generated_text)
+                    survey_result = {
+                        "Session": session.session_number,
+                        "Round": round_num,
+                        "Agent Name": agent.name,
+                        "Party": agent.party,
+                        "Response": response
+                    }
+                    session.survey_writer.writerow(survey_result)
+                    all_survey_results.append(survey_result)
 
-        # ラウンドごとの処理
-        for round_num in range(1, self.round_robin_times + 1):
-            # 各セッションでのエージェントの順序を初期化
-            session_agent_iters = {session: iter(session.agents) for session in sessions}
+                # ラウンドごとの処理
+                for round_num in range(1, session.round_robin_times + 1):
+                    # エージェントの順序を初期化
+                    agent_iter = iter(session.agents)
 
-            # アクティブなセッションのリスト
-            active_sessions = sessions[:]
-
-            while active_sessions:
-                conversation_prompts = []
-                agent_session_info = []
-
-                for session in active_sessions[:]:
-                    try:
-                        agent = next(session_agent_iters[session])
+                    for agent in agent_iter:
                         instruction_and_history = f"{session.conversation_history}\n\nHi {agent.name}, based on the above conversation, please follow the instruction below:\n{session.instruction}"
                         prompt = agent.construct_response_prompt(instruction_and_history)
-                        conversation_prompts.append(prompt)
-                        agent_session_info.append((agent, session, round_num))
-                    except StopIteration:
-                        # このセッションのエージェント全員が発言済み
-                        active_sessions.remove(session)
 
-                if conversation_prompts:
-                    # バッチ処理
-                    batch_generations = generator(
-                            conversation_prompts,
-                            batch_size=5,
+                        # モデル推論
+                        generation = generator(
+                            [prompt],
+                            batch_size=1,
                             temperature=1.0,
                             top_p=1,
                             max_new_tokens=512,
                             pad_token_id=generator.model.config.eos_token_id[0],
-                            )
+                        )[0]
 
-                    # 結果の処理と会話履歴の更新
-                    for i, generation in enumerate(batch_generations):
-                        agent, session, round_num = agent_session_info[i]
                         agent_response = generation[0]['generated_text'][-1]["content"]
                         session.conversation_history += f"{agent.name}: {agent_response}\n"
-                        # 各セッションのconversation_recordsに追加
-                        session.conversation_records.append({
+                        conversation_record = {
                             "Session": session.session_number,
                             "Round": round_num,
                             "Agent Name": agent.name,
                             "Party": agent.party,
                             "Response": agent_response
-                        })
-                else:
-                    # 全てのセッションで発言が完了
-                    break
+                        }
+                        session.conversation_writer.writerow(conversation_record)
 
-            # ラウンド終了後のアンケート
-            survey_prompts = []
-            agent_session_info = []
-            for session in sessions:
-                for agent in session.agents:
-                    question = f"Hi {agent.name}. {session.survey_question}"
-                    prompt = agent.construct_survey_prompt(session.conversation_history, question)
-                    survey_prompts.append(prompt)
-                    agent_session_info.append((agent, session, round_num))
+                    # ラウンド終了後のアンケート
+                    survey_prompts = []
+                    agent_info = []
+                    for agent in session.agents:
+                        question = f"Hi {agent.name}. {session.survey_question}"
+                        prompt = agent.construct_survey_prompt(session.conversation_history, question)
+                        survey_prompts.append(prompt)
+                        agent_info.append((agent, session, round_num))
 
-            # バッチ処理
-            batch_generations = generator(
-                    survey_prompts,
-                    batch_size=5,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
-                    temperature=1.0,
-                    top_p=1,
-                    max_new_tokens=50,
-                    pad_token_id=generator.model.config.eos_token_id[0],
+                    # バッチ処理
+                    batch_generations = generator(
+                        survey_prompts,
+                        batch_size=5,
+                        temperature=1.0,
+                        top_p=1,
+                        max_new_tokens=50,
+                        pad_token_id=generator.model.config.eos_token_id[0],
                     )
 
-            # 結果の処理
-            for i, generation in enumerate(batch_generations):
-                agent, session, round_num = agent_session_info[i]
-                generated_text = generation[0]['generated_text'][-1]["content"]
-                response = agent.extract_number_from_response(generated_text)
-                session.survey_results.append({
-                    "Session": session.session_number,
-                    "Round": round_num,
-                    "Agent Name": agent.name,
-                    "Party": agent.party,
-                    "Response": response
-                })
-
-        # 結果の保存
-        conversation_file = os.path.join(output_dir, "conversation_records.csv")
-        with open(conversation_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
-            # セッションごとに会話記録を出力
+                    # 結果の処理と保存
+                    for i, generation in enumerate(batch_generations):
+                        agent, session, round_num = agent_info[i]
+                        generated_text = generation[0]['generated_text'][-1]["content"]
+                        response = agent.extract_number_from_response(generated_text)
+                        survey_result = {
+                            "Session": session.session_number,
+                            "Round": round_num,
+                            "Agent Name": agent.name,
+                            "Party": agent.party,
+                            "Response": response
+                        }
+                        session.survey_writer.writerow(survey_result)
+                        all_survey_results.append(survey_result)
+        finally:
+            # 各セッションのファイルをクローズ
             for session in sessions:
-                for record in session.conversation_records:
-                    writer.writerow(record)
+                session.close_files()
 
-        survey_file = os.path.join(output_dir, "survey_results.csv")
-        with open(survey_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
-            for session in sessions:
-                for result in session.survey_results:
+            # 全てのアンケート結果をまとめる
+            all_survey_file = os.path.join(self.output_dir, "all_survey_results.csv")
+            with open(all_survey_file, 'w', newline='', encoding='utf-8') as csvfile:
+                fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+                for result in all_survey_results:
                     writer.writerow(result)
 
 def main():
@@ -323,10 +319,11 @@ def main():
         democrat_personas_list,
         republican_personas_list,
         instruction,
-        survey_question
+        survey_question,
+        output_dir
     )
 
-    experiment.run(generator, output_dir)
+    experiment.run(generator)
 
 if __name__ == "__main__":
     main()
