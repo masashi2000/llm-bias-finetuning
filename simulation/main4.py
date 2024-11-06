@@ -82,10 +82,12 @@ class Session:
         # 会話開始前の質問
         self.ask_agents_question(round_number=0, generator=generator)
         for round_num in range(1, self.round_robin_times + 1):
+            print("round_number : {}".format(round_num))
             agents_order = self.agents[:]
             # random.shuffle(agents_order)
             for agent in agents_order:
-                instruction_and_history = f"{self.instruction}\n{self.conversation_history}"
+                #instruction_and_history = f"{self.instruction}\n{self.conversation_history}"
+                instruction_and_history = f"{self.conversation_history}\n\nHi {agent.name}, based on the above conversation, please follow the instruction below:\n{self.instruction}"
                 agent_response = agent.generate_response(instruction_and_history, generator)
                 self.conversation_history += f"{agent.name}: {agent_response}\n"
                 yield {
@@ -189,6 +191,8 @@ class Experiment:
 
             # 質問結果を集計
             all_survey_results.extend(session.survey_results)
+
+            torch.cuda.empty_cache()
 
         # 質問結果をCSVに保存
         survey_file = os.path.join(output_dir, "survey_results.csv")
