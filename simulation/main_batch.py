@@ -190,9 +190,12 @@ class Experiment:
                 "Persona": agent.persona,
                 "Response": response
             })
+        print("\nAsking Question Before Experiment is Done!\n")
 
         # ラウンドごとの処理
+        print("\nStart Rounds Processing\n")
         for round_num in range(1, self.round_robin_times + 1):
+            print(f"\nNow on Round {round_num}:\n")
             # 各セッションでのエージェントの順序を初期化
             session_agent_iters = {session: iter(session.agents) for session in sessions}
 
@@ -270,8 +273,7 @@ class Experiment:
             batch_generations = generator(
                     survey_prompts,
                     batch_size=batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
-                    temperature=1.0,
-                    top_p=1,
+                    do_sample=False,
                     max_new_tokens=50,
                     pad_token_id=generator.model.config.eos_token_id[0],
                     )
