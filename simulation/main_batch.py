@@ -80,6 +80,19 @@ class Experiment:
         all_survey_results = []
         sessions = []
 
+        # バッチサイズを決める。検証結果では二人の時は7, ３人の時は3, 四人の時は3の時がGPUのメモリをはみ出さないとわかった。
+        # もし、これで遅かったら、今後、ラウンドを重ねるごとに小さくしていくコードに変更もあり。
+        total_agents = self.num_democrat_agents + self.num_republican_agents
+        if total_agents = 2:
+            batch_size = 7
+        elif total_agents = 3:
+            batch_size = 3
+        elif total_agents = 4:
+            batch_size = 3
+        else:
+            raise ValueError("現在のコードはエージェント数を2-4の時に対応しています。それ以外の人数の時はバッチサイズをコードに入れてください。")
+
+
         # セッションの作成
         for session_number in range(1, self.trial_times + 1):
             # 名前とペルソナの選択（詳細は省略）
@@ -148,7 +161,7 @@ class Experiment:
 
         batch_generations = generator(
                 survey_prompts,
-                batch_size=5,
+                batch_size=batch_size,
                 do_sample=False,
                 max_new_tokens=50,
                 pad_token_id=generator.model.config.eos_token_id[0],
@@ -202,7 +215,7 @@ class Experiment:
                         print()
                     batch_generations = generator(
                             conversation_prompts,
-                            batch_size=5,
+                            batch_size=batch_size,
                             temperature=1.0,
                             top_p=1,
                             max_new_tokens=512,
@@ -244,7 +257,7 @@ class Experiment:
                 print()
             batch_generations = generator(
                     survey_prompts,
-                    batch_size=5,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
+                    batch_size=batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
                     temperature=1.0,
                     top_p=1,
                     max_new_tokens=50,
