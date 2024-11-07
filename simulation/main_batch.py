@@ -137,7 +137,7 @@ class Experiment:
         batch_generations = generator(
                 survey_prompts,
                 batch_size=5,
-                temperature=0,
+                do_sample=False,
                 max_new_tokens=50,
                 pad_token_id=generator.model.config.eos_token_id[0],
                 )
@@ -146,6 +146,9 @@ class Experiment:
         for i, generation in enumerate(batch_generations):
             agent, session, round_num = agent_session_info[i]
             generated_text = generation[0]['generated_text'][-1]["content"]
+            print()
+            print(generated_text)
+            print()
             response = agent.extract_number_from_response(generated_text)
             session.survey_results.append({
                 "Session": session.session_number,
