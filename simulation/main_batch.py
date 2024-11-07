@@ -62,7 +62,7 @@ class Session:
 
 class Experiment:
     def __init__(self, trial_times, round_robin_times, num_democrat_agents, num_republican_agents,
-                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question):
+                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check):
         self.trial_times = trial_times
         self.round_robin_times = round_robin_times
         self.num_democrat_agents = num_democrat_agents
@@ -75,6 +75,7 @@ class Experiment:
         self.used_names = set()
         self.used_democrat_personas = set()
         self.used_republican_personas = set()
+        self.check = check
 
     def run(self, generator, output_dir):
         all_survey_results = []
@@ -152,13 +153,16 @@ class Experiment:
                 survey_prompts.append(prompt)
                 agent_session_info.append((agent, session, 0))
 
-        # バッチ処理
-        print("初回アンケート")
-        for i in range(0, len(survey_prompts)):
-            print(survey_prompts[i][0]["content"])
-            print(survey_prompts[i][1]["content"])
-            print()
+        # 確認するときに
+        if self.check :
+            print("-------------------------------------------------------")
+            print("Asking Question Prompts Before Experiment")
+            for i in range(0, len(survey_prompts)):
+                print(survey_prompts[i][0]["content"])
+                print(survey_prompts[i][1]["content"])
+                print()
 
+        # バッチ処理
         batch_generations = generator(
                 survey_prompts,
                 batch_size=batch_size,
@@ -171,9 +175,12 @@ class Experiment:
         for i, generation in enumerate(batch_generations):
             agent, session, round_num = agent_session_info[i]
             generated_text = generation[0]['generated_text'][-1]["content"]
-            print()
-            print(generated_text)
-            print()
+           
+            if self.check: # 結果の確認
+                print()
+                print(generated_text)
+                print()
+
             response = agent.extract_number_from_response(generated_text)
             session.survey_results.append({
                 "Session": session.session_number,
@@ -209,10 +216,12 @@ class Experiment:
 
                 if conversation_prompts:
                     # バッチ処理
-                    print("Conversation Prompts is below:")
-                    for i in range(0, len(conversation_prompts)):
-                        print(conversation_prompts[i])
-                        print()
+                    if self.check: # 確認用
+                        print("---------------------------------------------------------------")
+                        print(f"Conversation Prompts for Round {round_num} is below:")
+                        for i in range(0, len(conversation_prompts)):
+                            print(conversation_prompts[i])
+                            print()
                     batch_generations = generator(
                             conversation_prompts,
                             batch_size=batch_size,
@@ -251,10 +260,13 @@ class Experiment:
                     agent_session_info.append((agent, session, round_num))
 
             # バッチ処理
-            for i in range(0, len(survey_prompts)):
-                print(survey_prompts[i][0]["content"])
-                print(survey_prompts[i][1]["content"])
-                print()
+            if self.check:# 確認用
+                print("-------------------------------------------------------------------")
+                print(f"Asking question Prompts for Round {round_num} is below:")
+                for i in range(0, len(survey_prompts)):
+                    print(survey_prompts[i][0]["content"])
+                    print(survey_prompts[i][1]["content"])
+                    print()
             batch_generations = generator(
                     survey_prompts,
                     batch_size=batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
@@ -305,6 +317,7 @@ def main():
     parser.add_argument('--num_democrat_agents', type=int, required=True, help='民主党エージェントの数')
     parser.add_argument('--num_republican_agents', type=int, required=True, help='共和党エージェントの数')
     parser.add_argument('--instruction_file', type=str, required=True, help='インストラクションファイルのパス')
+    parser.add_argument('--check', action='store_true', help='投げる前のプロンプトを確認したいときに指定')
     args = parser.parse_args()
 
     # モデルの初期化
@@ -363,7 +376,8 @@ def main():
         democrat_personas_list,
         republican_personas_list,
         instruction,
-        survey_question
+        survey_question,
+        args.check
     )
 
     experiment.run(generator, output_dir)
