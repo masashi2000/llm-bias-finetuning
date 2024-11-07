@@ -385,5 +385,17 @@ def main():
     experiment.run(generator, output_dir)
 
 if __name__ == "__main__":
+
+    # 経過時間を計算する。
+    import time
+    start_time = time.time()
+
     main()
 
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+
+    hours = int(elapsed_time // 3600)
+    minutes = int((elapsed_time % 3600) // 60)
+
+    print(f"\nDone in {hours} hours {minutes} minutes!!\n")
