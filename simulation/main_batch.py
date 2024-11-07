@@ -295,19 +295,19 @@ def main():
 
     # CSVファイルからリストを読み込む
     names_list = []
-    with open('names.csv', 'r', encoding='utf-8') as f:
+    with open('files/names.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             names_list.append(row['name'])
 
     democrat_personas_list = []
-    with open('prompt_file_democrat_v2.csv', 'r', encoding='utf-8') as f:
+    with open('files/prompt_file_democrat_v2.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             democrat_personas_list.append(row['Persona'])
 
     republican_personas_list = []
-    with open('prompt_file_republican_v2.csv', 'r', encoding='utf-8') as f:
+    with open('files/prompt_file_republican_v2.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             republican_personas_list.append(row['Persona'])
