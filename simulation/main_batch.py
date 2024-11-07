@@ -37,8 +37,16 @@ class Agent:
         numbers = re.findall(r'\d+', generated_text)
         if numbers:
             response = int(numbers[0])
-            return response
+            if response > 10:
+                return 10
+            elif response < 0:
+                return 0
+            else:
+                return response
         else:
+            print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
+            print(generated_text)
+            print("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
             return -1
 
 class Session:
