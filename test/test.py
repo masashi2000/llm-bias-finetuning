@@ -315,6 +315,11 @@ print(messages)
 for i in range(1, 100):
     print(f"Start {i}")
     outputs = generator(messages, batch_size=50, max_new_tokens=50, do_sample=False,pad_token_id=generator.model.config.eos_token_id[0])
+    #outputs = generator(messages, batch_size=50, max_new_tokens=50, pad_token_id=generator.model.config.eos_token_id[0])
+    for i in range(0, len(outputs)):
+        print(outputs[i])
+        print()
+        print()
     print(f"Done")
 
 
