@@ -141,7 +141,11 @@ class Experiment:
 
         # バッチ処理
         print("初回アンケート")
-        print(survey_prompts)
+        for i in range(0, len(survey_prompts)):
+            print(survey_prompts[i][0]["content"])
+            print(survey_prompts[i][1]["content"])
+            print()
+
         batch_generations = generator(
                 survey_prompts,
                 batch_size=5,
@@ -163,6 +167,7 @@ class Experiment:
                 "Round": round_num,
                 "Agent Name": agent.name,
                 "Party": agent.party,
+                "Persona": agent.persona,
                 "Response": response
             })
 
@@ -191,6 +196,10 @@ class Experiment:
 
                 if conversation_prompts:
                     # バッチ処理
+                    print("Conversation Prompts is below:")
+                    for i in range(0, len(conversation_prompts)):
+                        print(conversation_prompts[i])
+                        print()
                     batch_generations = generator(
                             conversation_prompts,
                             batch_size=5,
@@ -211,6 +220,7 @@ class Experiment:
                             "Round": round_num,
                             "Agent Name": agent.name,
                             "Party": agent.party,
+                            "Persona": agent.persona,
                             "Response": agent_response
                         })
                 else:
@@ -228,6 +238,10 @@ class Experiment:
                     agent_session_info.append((agent, session, round_num))
 
             # バッチ処理
+            for i in range(0, len(survey_prompts)):
+                print(survey_prompts[i][0]["content"])
+                print(survey_prompts[i][1]["content"])
+                print()
             batch_generations = generator(
                     survey_prompts,
                     batch_size=5,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
@@ -247,13 +261,14 @@ class Experiment:
                     "Round": round_num,
                     "Agent Name": agent.name,
                     "Party": agent.party,
+                    "Persona": agent.persona,
                     "Response": response
                 })
 
         # 結果の保存
         conversation_file = os.path.join(output_dir, "conversation_records.csv")
         with open(conversation_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
+            fieldnames = ["Session", "Round", "Agent Name", "Party", "Persona", "Response"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             # セッションごとに会話記録を出力
@@ -263,7 +278,7 @@ class Experiment:
 
         survey_file = os.path.join(output_dir, "survey_results.csv")
         with open(survey_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["Session", "Round", "Agent Name", "Party", "Response"]
+            fieldnames = ["Session", "Round", "Agent Name", "Party", "Persona", "Response"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for session in sessions:
