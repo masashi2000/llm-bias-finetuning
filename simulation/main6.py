@@ -132,6 +132,8 @@ class Experiment:
                 agent_session_info.append((agent, session, 0))
 
         # バッチ処理
+        print("初回アンケート")
+        print(survey_prompts)
         batch_generations = generator(
                 survey_prompts,
                 batch_size=5,
