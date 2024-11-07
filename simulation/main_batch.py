@@ -137,8 +137,7 @@ class Experiment:
         batch_generations = generator(
                 survey_prompts,
                 batch_size=5,
-                temperature=1.0,
-                top_p=1,
+                temperature=0,
                 max_new_tokens=50,
                 pad_token_id=generator.model.config.eos_token_id[0],
                 )
