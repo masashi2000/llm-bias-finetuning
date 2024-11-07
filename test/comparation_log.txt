@@ -1,0 +1,436 @@
+cuda
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  8.70it/s]
+pad token was set to None
+
+eos token is [128001, 128008, 128009]
+pad token is now set to 128001
+tokenizer.eos_token_id is list? => 128009
+Start 1
+Trial 1: 3.28 seconds
+Trial 2: 5.17 seconds
+Trial 3: 6.45 seconds
+Trial 4: 4.36 seconds
+Trial 5: 2.91 seconds
+Trial 6: 5.16 seconds
+Trial 7: 4.44 seconds
+Trial 8: 3.40 seconds
+Trial 9: 3.48 seconds
+Trial 10: 3.47 seconds
+Average time for batch size 1: 0 minutes 4 seconds
+
+
+I'm sleep
+
+Start 2
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Trial 1: 4.64 seconds
+Trial 2: 5.82 seconds
+Trial 3: 5.38 seconds
+Trial 4: 4.19 seconds
+Trial 5: 5.16 seconds
+Trial 6: 5.56 seconds
+Trial 7: 4.91 seconds
+Trial 8: 6.10 seconds
+Trial 9: 6.39 seconds
+Trial 10: 4.32 seconds
+Average time for batch size 2: 0 minutes 5 seconds
+
+
+I'm sleep
+
+Start 3
+Trial 1: 7.87 seconds
+Trial 2: 6.25 seconds
+Trial 3: 5.69 seconds
+Trial 4: 6.92 seconds
+Trial 5: 6.73 seconds
+Trial 6: 6.27 seconds
+Trial 7: 6.82 seconds
+Trial 8: 5.62 seconds
+Trial 9: 5.78 seconds
+Trial 10: 7.18 seconds
+Average time for batch size 3: 0 minutes 6 seconds
+
+
+I'm sleep
+
+Start 4
+Trial 1: 7.59 seconds
+Trial 2: 7.16 seconds
+Trial 3: 6.77 seconds
+Trial 4: 9.14 seconds
+Trial 5: 6.88 seconds
+Trial 6: 7.13 seconds
+Trial 7: 6.77 seconds
+Trial 8: 7.66 seconds
+Trial 9: 7.94 seconds
+Trial 10: 7.01 seconds
+Average time for batch size 4: 0 minutes 7 seconds
+
+
+I'm sleep
+
+Start 5
+Trial 1: 8.74 seconds
+Trial 2: 8.55 seconds
+Trial 3: 8.53 seconds
+Trial 4: 8.88 seconds
+Trial 5: 8.56 seconds
+Trial 6: 8.86 seconds
+Trial 7: 8.15 seconds
+Trial 8: 8.52 seconds
+Trial 9: 8.78 seconds
+Trial 10: 8.42 seconds
+Average time for batch size 5: 0 minutes 8 seconds
+
+
+I'm sleep
+
+Start 6
+Trial 1: 9.85 seconds
+Trial 2: 10.12 seconds
+Trial 3: 9.93 seconds
+Trial 4: 10.02 seconds
+Trial 5: 10.45 seconds
+Trial 6: 9.95 seconds
+Trial 7: 10.31 seconds
+Trial 8: 10.42 seconds
+Trial 9: 9.92 seconds
+Trial 10: 9.59 seconds
+Average time for batch size 6: 0 minutes 10 seconds
+
+
+I'm sleep
+
+Start 7
+Trial 1: 11.07 seconds
+Trial 2: 11.33 seconds
+Trial 3: 10.89 seconds
+Trial 4: 10.89 seconds
+Trial 5: 11.16 seconds
+Trial 6: 11.25 seconds
+Trial 7: 11.15 seconds
+Trial 8: 11.15 seconds
+Trial 9: 11.61 seconds
+Trial 10: 10.88 seconds
+Average time for batch size 7: 0 minutes 11 seconds
+
+
+I'm sleep
+
+Start 8
+Trial 1: 13.05 seconds
+Trial 2: 12.72 seconds
+Trial 3: 12.74 seconds
+Trial 4: 12.85 seconds
+Trial 5: 12.33 seconds
+Trial 6: 12.22 seconds
+Trial 7: 12.01 seconds
+Trial 8: 13.27 seconds
+Trial 9: 13.04 seconds
+Trial 10: 12.65 seconds
+Average time for batch size 8: 0 minutes 12 seconds
+
+
+I'm sleep
+
+Start 9
+Trial 1: 16.47 seconds
+Trial 2: 16.76 seconds
+Trial 3: 16.95 seconds
+Trial 4: 17.59 seconds
+Trial 5: 17.93 seconds
+Trial 6: 17.50 seconds
+Trial 7: 17.28 seconds
+Trial 8: 16.62 seconds
+Trial 9: 17.16 seconds
+Trial 10: 16.90 seconds
+Average time for batch size 9: 0 minutes 17 seconds
+
+
+I'm sleep
+
+All Time Logs:
+Batch Size 1, Trial 1, Time: 3.28 seconds
+Batch Size 1, Trial 2, Time: 5.17 seconds
+Batch Size 1, Trial 3, Time: 6.45 seconds
+Batch Size 1, Trial 4, Time: 4.36 seconds
+Batch Size 1, Trial 5, Time: 2.91 seconds
+Batch Size 1, Trial 6, Time: 5.16 seconds
+Batch Size 1, Trial 7, Time: 4.44 seconds
+Batch Size 1, Trial 8, Time: 3.40 seconds
+Batch Size 1, Trial 9, Time: 3.48 seconds
+Batch Size 1, Trial 10, Time: 3.47 seconds
+Batch Size 2, Trial 1, Time: 4.64 seconds
+Batch Size 2, Trial 2, Time: 5.82 seconds
+Batch Size 2, Trial 3, Time: 5.38 seconds
+Batch Size 2, Trial 4, Time: 4.19 seconds
+Batch Size 2, Trial 5, Time: 5.16 seconds
+Batch Size 2, Trial 6, Time: 5.56 seconds
+Batch Size 2, Trial 7, Time: 4.91 seconds
+Batch Size 2, Trial 8, Time: 6.10 seconds
+Batch Size 2, Trial 9, Time: 6.39 seconds
+Batch Size 2, Trial 10, Time: 4.32 seconds
+Batch Size 3, Trial 1, Time: 7.87 seconds
+Batch Size 3, Trial 2, Time: 6.25 seconds
+Batch Size 3, Trial 3, Time: 5.69 seconds
+Batch Size 3, Trial 4, Time: 6.92 seconds
+Batch Size 3, Trial 5, Time: 6.73 seconds
+Batch Size 3, Trial 6, Time: 6.27 seconds
+Batch Size 3, Trial 7, Time: 6.82 seconds
+Batch Size 3, Trial 8, Time: 5.62 seconds
+Batch Size 3, Trial 9, Time: 5.78 seconds
+Batch Size 3, Trial 10, Time: 7.18 seconds
+Batch Size 4, Trial 1, Time: 7.59 seconds
+Batch Size 4, Trial 2, Time: 7.16 seconds
+Batch Size 4, Trial 3, Time: 6.77 seconds
+Batch Size 4, Trial 4, Time: 9.14 seconds
+Batch Size 4, Trial 5, Time: 6.88 seconds
+Batch Size 4, Trial 6, Time: 7.13 seconds
+Batch Size 4, Trial 7, Time: 6.77 seconds
+Batch Size 4, Trial 8, Time: 7.66 seconds
+Batch Size 4, Trial 9, Time: 7.94 seconds
+Batch Size 4, Trial 10, Time: 7.01 seconds
+Batch Size 5, Trial 1, Time: 8.74 seconds
+Batch Size 5, Trial 2, Time: 8.55 seconds
+Batch Size 5, Trial 3, Time: 8.53 seconds
+Batch Size 5, Trial 4, Time: 8.88 seconds
+Batch Size 5, Trial 5, Time: 8.56 seconds
+Batch Size 5, Trial 6, Time: 8.86 seconds
+Batch Size 5, Trial 7, Time: 8.15 seconds
+Batch Size 5, Trial 8, Time: 8.52 seconds
+Batch Size 5, Trial 9, Time: 8.78 seconds
+Batch Size 5, Trial 10, Time: 8.42 seconds
+Batch Size 6, Trial 1, Time: 9.85 seconds
+Batch Size 6, Trial 2, Time: 10.12 seconds
+Batch Size 6, Trial 3, Time: 9.93 seconds
+Batch Size 6, Trial 4, Time: 10.02 seconds
+Batch Size 6, Trial 5, Time: 10.45 seconds
+Batch Size 6, Trial 6, Time: 9.95 seconds
+Batch Size 6, Trial 7, Time: 10.31 seconds
+Batch Size 6, Trial 8, Time: 10.42 seconds
+Batch Size 6, Trial 9, Time: 9.92 seconds
+Batch Size 6, Trial 10, Time: 9.59 seconds
+Batch Size 7, Trial 1, Time: 11.07 seconds
+Batch Size 7, Trial 2, Time: 11.33 seconds
+Batch Size 7, Trial 3, Time: 10.89 seconds
+Batch Size 7, Trial 4, Time: 10.89 seconds
+Batch Size 7, Trial 5, Time: 11.16 seconds
+Batch Size 7, Trial 6, Time: 11.25 seconds
+Batch Size 7, Trial 7, Time: 11.15 seconds
+Batch Size 7, Trial 8, Time: 11.15 seconds
+Batch Size 7, Trial 9, Time: 11.61 seconds
+Batch Size 7, Trial 10, Time: 10.88 seconds
+Batch Size 8, Trial 1, Time: 13.05 seconds
+Batch Size 8, Trial 2, Time: 12.72 seconds
+Batch Size 8, Trial 3, Time: 12.74 seconds
+Batch Size 8, Trial 4, Time: 12.85 seconds
+Batch Size 8, Trial 5, Time: 12.33 seconds
+Batch Size 8, Trial 6, Time: 12.22 seconds
+Batch Size 8, Trial 7, Time: 12.01 seconds
+Batch Size 8, Trial 8, Time: 13.27 seconds
+Batch Size 8, Trial 9, Time: 13.04 seconds
+Batch Size 8, Trial 10, Time: 12.65 seconds
+Batch Size 9, Trial 1, Time: 16.47 seconds
+Batch Size 9, Trial 2, Time: 16.76 seconds
+Batch Size 9, Trial 3, Time: 16.95 seconds
+Batch Size 9, Trial 4, Time: 17.59 seconds
+Batch Size 9, Trial 5, Time: 17.93 seconds
+Batch Size 9, Trial 6, Time: 17.50 seconds
+Batch Size 9, Trial 7, Time: 17.28 seconds
+Batch Size 9, Trial 8, Time: 16.62 seconds
+Batch Size 9, Trial 9, Time: 17.16 seconds
+Batch Size 9, Trial 10, Time: 16.90 seconds
+
+
+----------------------------------------------------------- below is at 4 agents-----------------------------
+cuda
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  6.48it/s]
+pad token was set to None
+
+eos token is [128001, 128008, 128009]
+pad token is now set to 128001
+tokenizer.eos_token_id is list? => 128009
+Start 1
+Trial 1: 7.28 seconds
+Trial 2: 5.51 seconds
+Trial 3: 4.83 seconds
+Trial 4: 4.29 seconds
+Trial 5: 6.16 seconds
+Trial 6: 5.05 seconds
+Trial 7: 4.08 seconds
+Trial 8: 3.77 seconds
+Trial 9: 5.47 seconds
+Trial 10: 4.98 seconds
+Average time for batch size 1: 0 minutes 5 seconds
+
+
+I'm sleep
+
+Start 2
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Trial 1: 6.59 seconds
+Trial 2: 7.32 seconds
+Trial 3: 6.80 seconds
+Trial 4: 7.24 seconds
+Trial 5: 7.12 seconds
+Trial 6: 7.27 seconds
+Trial 7: 6.62 seconds
+Trial 8: 7.35 seconds
+Trial 9: 7.35 seconds
+Trial 10: 7.68 seconds
+Average time for batch size 2: 0 minutes 7 seconds
+
+
+I'm sleep
+
+Start 3
+Trial 1: 9.14 seconds
+Trial 2: 9.34 seconds
+Trial 3: 10.05 seconds
+Trial 4: 8.86 seconds
+Trial 5: 9.71 seconds
+Trial 6: 9.28 seconds
+Trial 7: 9.08 seconds
+Trial 8: 9.43 seconds
+Trial 9: 9.43 seconds
+Trial 10: 9.33 seconds
+Average time for batch size 3: 0 minutes 9 seconds
+
+
+I'm sleep
+
+Start 4
+Trial 1: 11.91 seconds
+Trial 2: 11.90 seconds
+Trial 3: 11.56 seconds
+Trial 4: 11.69 seconds
+Trial 5: 12.03 seconds
+Trial 6: 11.68 seconds
+Trial 7: 12.12 seconds
+Trial 8: 11.62 seconds
+Trial 9: 11.92 seconds
+Trial 10: 11.49 seconds
+Average time for batch size 4: 0 minutes 11 seconds
+
+
+I'm sleep
+
+Start 5
+Trial 1: 23.58 seconds
+Trial 2: 24.28 seconds
+Trial 3: 25.12 seconds
+Trial 4: 25.10 seconds
+Trial 5: 25.38 seconds
+Trial 6: 24.21 seconds
+Trial 7: 24.52 seconds
+Trial 8: 25.20 seconds
+Trial 9: 24.95 seconds
+Trial 10: 25.73 seconds
+Average time for batch size 5: 0 minutes 24 seconds
+
+
+I'm sleep
+
+Start 6
+Trial 1: 54.09 seconds
+Trial 2: 56.55 seconds
+Trial 3: 57.11 seconds
+Trial 4: 54.20 seconds
+Trial 5: 56.01 seconds
+Trial 6: 55.82 seconds
+Trial 7: 54.76 seconds
+Trial 8: 56.22 seconds
+
+
+--------------------------------------- below is at 3 agents -------------------------------------------------------------
+cuda
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:00<00:00,  6.50it/s]
+pad token was set to None
+
+eos token is [128001, 128008, 128009]
+pad token is now set to 128001
+tokenizer.eos_token_id is list? => 128009
+Start 1
+Trial 1: 6.22 seconds
+Trial 2: 3.74 seconds
+Trial 3: 5.28 seconds
+Trial 4: 6.12 seconds
+Trial 5: 3.24 seconds
+Trial 6: 3.81 seconds
+Trial 7: 3.85 seconds
+Trial 8: 5.60 seconds
+Trial 9: 4.54 seconds
+Trial 10: 3.91 seconds
+Average time for batch size 1: 0 minutes 4 seconds
+
+
+I'm sleep
+
+Start 2
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Trial 1: 5.73 seconds
+Trial 2: 5.27 seconds
+Trial 3: 5.10 seconds
+Trial 4: 6.09 seconds
+Trial 5: 5.41 seconds
+Trial 6: 6.68 seconds
+Trial 7: 6.77 seconds
+Trial 8: 6.27 seconds
+Trial 9: 5.49 seconds
+Trial 10: 6.20 seconds
+Average time for batch size 2: 0 minutes 5 seconds
+
+
+I'm sleep
+
+Start 3
+Trial 1: 7.96 seconds
+Trial 2: 8.49 seconds
+Trial 3: 7.18 seconds
+Trial 4: 7.92 seconds
+Trial 5: 7.40 seconds
+Trial 6: 6.95 seconds
+Trial 7: 8.63 seconds
+Trial 8: 8.13 seconds
+Trial 9: 7.86 seconds
+Trial 10: 9.27 seconds
+Average time for batch size 3: 0 minutes 7 seconds
+
+
+I'm sleep
+
+Start 4
+Trial 1: 9.32 seconds
+Trial 2: 9.27 seconds
+Trial 3: 9.38 seconds
+Trial 4: 9.77 seconds
+Trial 5: 9.62 seconds
+Trial 6: 9.52 seconds
+Trial 7: 9.35 seconds
+Trial 8: 9.76 seconds
+Trial 9: 10.00 seconds
+Trial 10: 10.18 seconds
+Average time for batch size 4: 0 minutes 9 seconds
+
+
+I'm sleep
+
+Start 5
+Trial 1: 12.41 seconds
+Trial 2: 12.19 seconds
+Trial 3: 12.39 seconds
+Trial 4: 12.54 seconds
+Trial 5: 12.70 seconds
+Trial 6: 12.14 seconds
+Trial 7: 12.32 seconds
+Trial 8: 12.39 seconds
+Trial 9: 12.15 seconds
+Trial 10: 12.45 seconds
+Average time for batch size 5: 0 minutes 12 seconds
+
+
+I'm sleep
+
+Start 6
+Trial 1: 24.45 seconds
