@@ -83,11 +83,11 @@ class Experiment:
         # バッチサイズを決める。検証結果では二人の時は7, ３人の時は3, 四人の時は3の時がGPUのメモリをはみ出さないとわかった。
         # もし、これで遅かったら、今後、ラウンドを重ねるごとに小さくしていくコードに変更もあり。
         total_agents = self.num_democrat_agents + self.num_republican_agents
-        if total_agents = 2:
+        if total_agents == 2:
             batch_size = 7
-        elif total_agents = 3:
+        elif total_agents == 3:
             batch_size = 3
-        elif total_agents = 4:
+        elif total_agents == 4:
             batch_size = 3
         else:
             raise ValueError("現在のコードはエージェント数を2-4の時に対応しています。それ以外の人数の時はバッチサイズをコードに入れてください。")
