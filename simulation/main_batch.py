@@ -85,7 +85,7 @@ class Experiment:
         # もし、これで遅かったら、今後、ラウンドを重ねるごとに小さくしていくコードに変更もあり。
         total_agents = self.num_democrat_agents + self.num_republican_agents
         if total_agents == 2:
-            batch_size = 7
+            batch_size = 2
         elif total_agents == 3:
             batch_size = 3
         elif total_agents == 4:
