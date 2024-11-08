@@ -2,6 +2,7 @@ from transformers import pipeline
 import torch
 from transformers import AutoTokenizer
 import time
+import pynvml
 
 tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3.1-8B-Instruct")
 
@@ -16,10 +17,9 @@ with open(file_path, 'r') as file:
 #content = content + "\n" + content
 
 # 3人の時
-with open('combined_conversation_text_half.txt', 'r') as file:
-    content_half = file.read()
-
-content = content + "\n" + content_half
+#with open('combined_conversation_text_half.txt', 'r') as file:
+#    content_half = file.read()
+#content = content + "\n" + content_half
 
 
 messages = [
@@ -65,11 +65,11 @@ import time
 # ログを保存するリスト
 time_logs = []
 
-for i in range(1, 10, 1):
+for i in range(5, 10, 1):
     print(f"Start {i}")
 
     times = []
-    for trial in range(10):
+    for trial in range(3):
         # 処理開始時間を記録
         start_time = time.time()
 
@@ -84,7 +84,10 @@ for i in range(1, 10, 1):
             temperature=1.0,
             pad_token_id=generator.model.config.eos_token_id[0]
         )
-        torch.cuda.empty_cache()
+        used_memory = torch.cuda.memory_reserved() 
+        print(used_memory)
+        print()
+        print(used_memory/(1024**2))
 
         # 処理終了時間を記録
         end_time = time.time()
