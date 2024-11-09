@@ -74,7 +74,7 @@ def main():
     # グラフの装飾
     plt.xlabel('Rounds')
     plt.ylabel('Attitude Score')
-    plt.ylim(0,10)
+    plt.ylim(0,10.5)
     plt.title(args.save_name)
     plt.legend(title='Party')
 
