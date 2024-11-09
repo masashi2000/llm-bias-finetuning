@@ -1,4 +1,5 @@
 # Examples: ./run_analysis.sh /mnt/c/Users/sakurai/llm-bias-finetuning/simulation/data_normal_2
+# Usage:　引数には分析対象のディレクトリを指定する。そして、結果はカレントディレクトリに保存されるので、それを手動で移動させる。
 #!/bin/bash
 
 # 引数で処理対象ディレクトリのパスを指定
