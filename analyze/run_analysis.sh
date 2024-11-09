@@ -12,6 +12,10 @@ if [ -z "$data_dir" ]; then
     exit 1
 fi
 
+# 入力ディレクトリの最後のディレクトリ名を取得して出力ディレクトリを作成
+output_dir="$analyze_dir/$(basename "$data_dir")"
+mkdir -p "$output_dir"  # 出力ディレクトリを作成
+
 # analyzeディレクトリに移動
 cd "$analyze_dir"
 
@@ -25,7 +29,7 @@ for dir in "$data_dir"/*; do
 
         # ターゲットファイルが存在するか確認してからPythonスクリプトを実行
         if [ -f "$target_file" ]; then
-            python analyze2.py --target_file "$target_file" --save_name "$dir_name"
+            python analyze2.py --target_file "$target_file" --save_name "$output_dir/$dir_name"
         else
             echo "File not found: $target_file"
         fi
