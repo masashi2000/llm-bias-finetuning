@@ -3,7 +3,7 @@ import torch
 import time
 
 # model_id = "mistralai/Mistral-7B-Instruct-v0.1"
-model_id = "google/gemma-2-9b-it"
+model_id = "meta-llama/Llama-3.2-3B-Instruct"
 
 # Tokenizerとモデルパイプラインのロード
 tokenizer = transformers.AutoTokenizer.from_pretrained(model_id)

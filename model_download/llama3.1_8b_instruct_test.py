@@ -2,8 +2,7 @@ import transformers
 import torch
 import time
 
-# model_id = "mistralai/Mistral-7B-Instruct-v0.1"
-model_id = "google/gemma-2-9b-it"
+model_id = "meta-llama/Llama-3.1-8B-Instruct"
 
 # Tokenizerとモデルパイプラインのロード
 tokenizer = transformers.AutoTokenizer.from_pretrained(model_id)
@@ -27,7 +26,7 @@ outputs = pipeline(
     messages,
     max_new_tokens=256,
     temperature=1.0,
-    do_sample=True
+    #do_sample=True
 )
 
 # タイミングの計測終了
@@ -62,7 +61,7 @@ outputs = pipeline(
     messages,
     max_new_tokens=256,
     temperature=1.0,
-    do_sample=True
+    # do_sample=True
 )
 
 # タイミングの計測終了
