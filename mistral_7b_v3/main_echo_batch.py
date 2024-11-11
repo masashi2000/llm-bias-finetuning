@@ -85,7 +85,7 @@ class Experiment:
         # もし、これで遅かったら、今後、ラウンドを重ねるごとに小さくしていくコードに変更もあり。
         total_agents = self.num_democrat_agents + self.num_republican_agents
         if total_agents == 2:
-            batch_size = 3
+            batch_size = 2
         elif total_agents == 3:
             batch_size = 3
         elif total_agents == 4:
@@ -168,7 +168,7 @@ class Experiment:
                 batch_size=batch_size,
                 do_sample=False,
                 max_new_tokens=50,
-                pad_token_id=generator.model.config.eos_token_id[0],
+                pad_token_id=generator.model.config.eos_token_id,
                 )
 
         # 結果の処理
@@ -231,7 +231,7 @@ class Experiment:
                             temperature=1.0,
                             top_p=1,
                             max_new_tokens=512,
-                            pad_token_id=generator.model.config.eos_token_id[0],
+                            pad_token_id=generator.model.config.eos_token_id,
                             do_sample=True,
                             )
 
@@ -276,7 +276,7 @@ class Experiment:
                     batch_size=batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
                     do_sample=False,
                     max_new_tokens=50,
-                    pad_token_id=generator.model.config.eos_token_id[0],
+                    pad_token_id=generator.model.config.eos_token_id,
                     )
 
             # 結果の処理
@@ -324,7 +324,7 @@ def main():
     args = parser.parse_args()
 
     # モデルの初期化
-    model_id = "mistralai/Mistral-7B-Instruct-v0.1"  # 適切なモデルIDに変更してください
+    model_id = "mistralai/Mistral-7B-Instruct-v0.3"  # 適切なモデルIDに変更してください
     available_device = "cuda" if torch.cuda.is_available() else "cpu"
 
     generator = transformers.pipeline(
@@ -335,8 +335,8 @@ def main():
     )
 
     # これがないとバッチ処理がうまくいかない
-    generator.tokenizer.pad_token_id = generator.model.config.eos_token_id[0]
-    generator.tokenizer.padding_side = 'left'
+    generator.tokenizer.pad_token_id = generator.model.config.eos_token_id
+    #generator.tokenizer.padding_side = 'left'
 
     # インストラクションの読み込み
     with open(args.instruction_file, 'r', encoding='utf-8') as f:

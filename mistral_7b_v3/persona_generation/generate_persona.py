@@ -16,7 +16,7 @@ with open(prompt_file, 'r', encoding='utf-8') as f:
 
 
 # Initialize the pipeline with the specified settings
-model_id = "mistralai/Mistral-7B-Instruct-v0.1"
+model_id = "mistralai/Mistral-7B-Instruct-v0.3"
 avairable_device = "cuda" if torch.cuda.is_available() else "cpu"
 
 generator = transformers.pipeline(

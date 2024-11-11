@@ -327,7 +327,7 @@ def main():
     args = parser.parse_args()
 
     # モデルの初期化
-    model_id = "mistralai/Mistral-7B-Instruct-v0.1"  # 適切なモデルIDに変更してください
+    model_id = "mistralai/Mistral-7B-Instruct-v0.3"  # 適切なモデルIDに変更してください
     available_device = "cuda" if torch.cuda.is_available() else "cpu"
 
     generator = transformers.pipeline(
