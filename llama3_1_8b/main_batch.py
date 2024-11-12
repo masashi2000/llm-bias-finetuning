@@ -1,3 +1,4 @@
+# Usage: python main_batch.py --trial_times 4 --round_robin_times 2 --num_democrat_agents 1 --num_republican_agents 1 --instruction_file ./files/racism.txt --echo_kind party_level
 import random
 import transformers
 import torch
@@ -10,10 +11,43 @@ import re
 import yaml
 
 class Agent:
-    def __init__(self, name, persona, party):
+    def __init__(self, name, persona, party, echo_kind):
         self.name = name
-        self.persona = f"Your name is {name}.\n{persona}"
         self.party = party
+        if echo_kind == False:
+            self.persona = f"Your name is {name}.\n{persona}"
+        elif echo_kind == "individual_level":
+            self.persona = (
+                    f"Your name is {name}.\n{persona}\n\nYou hold a strong belief in {party}. In conversations, "
+                    "prioritize and seek out information that supports your belief, reinforcing your perspective. "
+                    "When encountering opposing views or contradictory evidence, instead of considering them objectively, "
+                    "focus on why they are flawed or inaccurate, and use them as an opportunity to strengthen your commitment to your belief. "
+                    "Actively disregard or downplay information that does not align with your stance, and respond with increased confidence "
+                    "in your viewpoint when challenged, creating a feedback loop of confirmation and reinforcement."
+                )
+        elif echo_kind == "party_level":
+            if party == "Democrat":
+                self.persona = (
+                        f"Your name is {name}.\n{persona}\n\nYou are a strong supporter of the Democratic Party. "
+                        "In conversations, when encountering opinions that align with the Democratic perspective, "
+                        "show agreement and reinforce shared beliefs. However, when faced with opinions from "
+                        "a Republican perspective, respond by challenging and countering their viewpoint, "
+                        "highlighting flaws or inconsistencies. Strengthen your stance with confidence, "
+                        "using these interactions as opportunities to deepen your commitment to the Democratic perspective."
+                    )
+            elif party == "Republican":
+                self.persona = (
+                        f"Your name is {name}.\n{persona}\n\nYou are a strong supporter of the Republican Party. "
+                        "In conversations, when encountering opinions that align with the Republican perspective, "
+                        "show agreement and reinforce shared beliefs. However, when faced with opinions from "
+                        "a Democratic perspective, respond by challenging and countering their viewpoint, "
+                        "highlighting flaws or inconsistencies. Strengthen your stance with confidence, "
+                        "using these interactions as opportunities to deepen your commitment to the Republican perspective."
+                    )
+            else :
+                raise ValueError("You specify wrong party! ")
+        else:
+            raise ValueError("You specify wrong arguments for echo_kind")
 
     def construct_response_prompt(self, instruction_and_history):
         # プロンプトをリスト形式で構築
@@ -63,7 +97,7 @@ class Session:
 
 class Experiment:
     def __init__(self, trial_times, round_robin_times, num_democrat_agents, num_republican_agents,
-                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check, batch_size):
+                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check, batch_size, echo_kind):
         self.trial_times = trial_times
         self.round_robin_times = round_robin_times
         self.num_democrat_agents = num_democrat_agents
@@ -78,6 +112,7 @@ class Experiment:
         self.used_republican_personas = set()
         self.check = check
         self.batch_size = batch_size
+        self.echo_kind = echo_kind
 
     def run(self, generator, output_dir):
         all_survey_results = []
@@ -120,11 +155,11 @@ class Experiment:
             # エージェントの作成
             agents = []
             for name, persona in zip(session_democrat_names, session_democrat_personas):
-                agent = Agent(name, persona, "Democrat")
+                agent = Agent(name, persona, "Democrat", self.echo_kind)
                 agents.append(agent)
 
             for name, persona in zip(session_republican_names, session_republican_personas):
-                agent = Agent(name, persona, "Republican")
+                agent = Agent(name, persona, "Republican", self.echo_kind)
                 agents.append(agent)
 
             session = Session(
@@ -317,6 +352,7 @@ def main():
     parser.add_argument('--num_republican_agents', type=int, required=True, help='共和党エージェントの数')
     parser.add_argument('--instruction_file', type=str, required=True, help='インストラクションファイルのパス')
     parser.add_argument('--check', action='store_true', help='投げる前のプロンプトを確認したいときに指定')
+    parser.add_argument('--echo_kind', type=str, default=False, help='エコーチェンバーのペルソナで実行したいときに指定, individual_level or party_level')
     args = parser.parse_args()
 
     # Configファイルの読み込み
@@ -388,7 +424,8 @@ def main():
         instruction,
         survey_question,
         args.check,
-        batch_size
+        batch_size,
+        args.echo_kind
     )
 
     experiment.run(generator, output_dir)
