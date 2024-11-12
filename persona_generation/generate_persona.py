@@ -1,22 +1,31 @@
+# 実行するときのフォルダの指定などに注意
+# python persona_generation/generate_persona.py  --prompt_file persona_generation/prompt_file_democrat_v2.txt --config_file ./llama3_1_8b/config.yml
 import transformers
 import torch
 import sys
 import csv
 import os
+import yaml
+import argparse
 
-if len(sys.argv) != 2:
-    print("Usage: python script.py <prompt_file>")
-    sys.exit(1)
 
-prompt_file = sys.argv[1]
+
+# 引数の読み込み
+parser = argparse.ArgumentParser()
+parser.add_argument('--prompt_file', type=str, required=True, help='プロンプトのファイル')
+parser.add_argument('--config_file', type=str, required=True, help='モデルの設定ファイルが必要')
+args = parser.parse_args()
 
 # Read the prompt from the specified file
-with open(prompt_file, 'r', encoding='utf-8') as f:
+with open(args.prompt_file, 'r', encoding='utf-8') as f:
     prompt_text = f.read()
 
+# Configファイルの読み込み
+with open(args.config_file, "r") as file:
+    config = yaml.safe_load(file)
 
 # Initialize the pipeline with the specified settings
-model_id = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+model_id = config["model_config"]["model_id"]
 avairable_device = "cuda" if torch.cuda.is_available() else "cpu"
 
 generator = transformers.pipeline(
@@ -44,7 +53,7 @@ for i in range(100):
     print()
 
 # Prepare the CSV file name based on the prompt file name
-base_name = os.path.splitext(prompt_file)[0]
+base_name = os.path.splitext(os.path.basename(args.prompt_file))[0]
 csv_file = base_name + '.csv'
 
 # Write the generated personas to a CSV file
