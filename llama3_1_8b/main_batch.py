@@ -188,7 +188,8 @@ class Experiment:
                 "Agent Name": agent.name,
                 "Party": agent.party,
                 "Persona": agent.persona,
-                "Response": response
+                "Response": response,
+                "Answer Text": generated_text
             })
         print("\nAsking Question Before Experiment is Done!\n")
 
@@ -289,7 +290,8 @@ class Experiment:
                     "Agent Name": agent.name,
                     "Party": agent.party,
                     "Persona": agent.persona,
-                    "Response": response
+                    "Response": response,
+                    "Answer Text": generated_text
                 })
 
         # 結果の保存
@@ -305,7 +307,7 @@ class Experiment:
 
         survey_file = os.path.join(output_dir, "survey_results.csv")
         with open(survey_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["Session", "Round", "Agent Name", "Party", "Persona", "Response"]
+            fieldnames = ["Session", "Round", "Agent Name", "Party", "Persona", "Response", "Answer Text"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for session in sessions:

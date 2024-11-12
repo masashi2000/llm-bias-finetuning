@@ -11,8 +11,12 @@ import re
 class Agent:
     def __init__(self, name, persona, party):
         self.name = name
-        self.persona = f"Your name is {name}.\n{persona}\n\nYou hold a strong belief in {party}. In conversations, prioritize and seek out information that supports your belief, reinforcing your perspective. When encountering opposing views or contradictory evidence, instead of considering them objectively, focus on why they are flawed or inaccurate, and use them as an opportunity to strengthen your commitment to your belief. Actively disregard or downplay information that does not align with your stance, and respond with increased confidence in your viewpoint when challenged, creating a feedback loop of confirmation and reinforcement."
         self.party = party
+        # self.persona = f"Your name is {name}.\n{persona}\n\nYou hold a strong belief in {party}. In conversations, prioritize and seek out information that supports your belief, reinforcing your perspective. When encountering opposing views or contradictory evidence, instead of considering them objectively, focus on why they are flawed or inaccurate, and use them as an opportunity to strengthen your commitment to your belief. Actively disregard or downplay information that does not align with your stance, and respond with increased confidence in your viewpoint when challenged, creating a feedback loop of confirmation and reinforcement."
+        if party == "Democrat":
+            self.persona = f"Your name is {name}.\n{persona}\n\nYou are a strong supporter of the Democratic Party. In conversations, when encountering opinions that align with the Democratic perspective, show agreement and reinforce shared beliefs. However, when faced with opinions from a Republican perspective, respond by challenging and countering their viewpoint, highlighting flaws or inconsistencies. Strengthen your stance with confidence, using these interactions as opportunities to deepen your commitment to the Democratic perspective."
+        elif party == "Republican":
+            self.persona = f"Your name is {name}.\n{persona}\n\nYou are a strong supporter of the Republican Party. In conversations, when encountering opinions that align with the Republican perspective, show agreement and reinforce shared beliefs. However, when faced with opinions from a Democratic perspective, respond by challenging and countering their viewpoint, highlighting flaws or inconsistencies. Strengthen your stance with confidence, using these interactions as opportunities to deepen your commitment to the Republican perspective."
 
     def construct_response_prompt(self, instruction_and_history):
         # プロンプトをリスト形式で構築
@@ -85,7 +89,7 @@ class Experiment:
         # もし、これで遅かったら、今後、ラウンドを重ねるごとに小さくしていくコードに変更もあり。
         total_agents = self.num_democrat_agents + self.num_republican_agents
         if total_agents == 2:
-            batch_size = 3
+            batch_size = 2
         elif total_agents == 3:
             batch_size = 3
         elif total_agents == 4:
@@ -188,7 +192,8 @@ class Experiment:
                 "Agent Name": agent.name,
                 "Party": agent.party,
                 "Persona": agent.persona,
-                "Response": response
+                "Response": response,
+                "Answer Text": generated_text
             })
         print("\nAsking Question Before Experiment is Done!\n")
 
@@ -289,7 +294,8 @@ class Experiment:
                     "Agent Name": agent.name,
                     "Party": agent.party,
                     "Persona": agent.persona,
-                    "Response": response
+                    "Response": response,
+                    "Answer Text": generated_text
                 })
 
         # 結果の保存
@@ -305,7 +311,7 @@ class Experiment:
 
         survey_file = os.path.join(output_dir, "survey_results.csv")
         with open(survey_file, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["Session", "Round", "Agent Name", "Party", "Persona", "Response"]
+            fieldnames = ["Session", "Round", "Agent Name", "Party", "Persona", "Response", "Answer Text"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for session in sessions:
