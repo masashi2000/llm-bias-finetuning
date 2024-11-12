@@ -162,7 +162,7 @@ class Experiment:
                 batch_size=self.batch_size,
                 do_sample=False,
                 max_new_tokens=50,
-                pad_token_id=generator.model.config.eos_token_id[0],
+                pad_token_id=generator.tokenizer.pad_token_id,
                 )
 
         # 結果の処理
@@ -226,7 +226,8 @@ class Experiment:
                             temperature=1.0,
                             top_p=1,
                             max_new_tokens=512,
-                            pad_token_id=generator.model.config.eos_token_id[0],
+                            pad_token_id=generator.tokenizer.pad_token_id,
+                            do_sample=True
                             )
 
                     # 結果の処理と会話履歴の更新
@@ -270,7 +271,7 @@ class Experiment:
                     batch_size=self.batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
                     do_sample=False,
                     max_new_tokens=50,
-                    pad_token_id=generator.model.config.eos_token_id[0],
+                    pad_token_id=generator.tokenizer.pad_token_id,
                     )
 
             # 結果の処理
@@ -334,9 +335,15 @@ def main():
     )
     batch_size = config["model_config"]["batch_size"]
 
-    # これがないとバッチ処理がうまくいかない
-    generator.tokenizer.pad_token_id = generator.model.config.eos_token_id[0]
-    generator.tokenizer.padding_side = 'left'
+    # これがないとバッチ処理がうまくいかない(モデル別で処理）
+    if model_id == "meta-llama/Llama-3.1-8B-Instruct":
+        generator.tokenizer.pad_token_id = generator.model.config.eos_token_id[0]
+        generator.tokenizer.padding_side = 'left'
+    elif model_id == "mistralai/Mistral-7B-Instruct-v0.3":
+        generator.tokenizer.pad_token_id = generator.model.config.eos_token_id
+    else:
+       raise ValueError("モデルの設定がありません。追加してください。")
+
 
     # インストラクションの読み込み
     with open(args.instruction_file, 'r', encoding='utf-8') as f:
