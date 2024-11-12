@@ -46,7 +46,8 @@ for i in range(100):
         prompt,
         temperature=1.0,
         top_p=1,
-        max_new_tokens=512
+        max_new_tokens=512,
+        do_sample=True,
     )
     personas.append(generation[0]["generated_text"][2]["content"])
     print("{} : {}".format(i+1, generation[0]["generated_text"][2]["content"]))
