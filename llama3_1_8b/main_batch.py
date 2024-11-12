@@ -7,6 +7,7 @@ import sys
 import argparse
 from datetime import datetime
 import re
+import yaml
 
 class Agent:
     def __init__(self, name, persona, party):
@@ -62,7 +63,7 @@ class Session:
 
 class Experiment:
     def __init__(self, trial_times, round_robin_times, num_democrat_agents, num_republican_agents,
-                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check):
+                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check, batch_size):
         self.trial_times = trial_times
         self.round_robin_times = round_robin_times
         self.num_democrat_agents = num_democrat_agents
@@ -76,22 +77,15 @@ class Experiment:
         self.used_democrat_personas = set()
         self.used_republican_personas = set()
         self.check = check
+        self.batch_size = batch_size
 
     def run(self, generator, output_dir):
         all_survey_results = []
         sessions = []
 
-        # バッチサイズを決める。検証結果では二人の時は7, ３人の時は3, 四人の時は3の時がGPUのメモリをはみ出さないとわかった。
-        # もし、これで遅かったら、今後、ラウンドを重ねるごとに小さくしていくコードに変更もあり。
         total_agents = self.num_democrat_agents + self.num_republican_agents
-        if total_agents == 2:
-            batch_size = 2
-        elif total_agents == 3:
-            batch_size = 3
-        elif total_agents == 4:
-            batch_size = 3
-        else:
-            raise ValueError("現在のコードはエージェント数を2-4の時に対応しています。それ以外の人数の時はバッチサイズをコードに入れてください。")
+        if total_agents != 2:
+            raise ValueError("現在のコードはバッチサイズが２の時にしか対応していない。もし、二人以外のときをやりたいならバッチサイズをどうするかを考えてコードを修正してね")
 
 
         # セッションの作成
@@ -165,7 +159,7 @@ class Experiment:
         # バッチ処理
         batch_generations = generator(
                 survey_prompts,
-                batch_size=batch_size,
+                batch_size=self.batch_size,
                 do_sample=False,
                 max_new_tokens=50,
                 pad_token_id=generator.model.config.eos_token_id[0],
@@ -228,7 +222,7 @@ class Experiment:
                             print()
                     batch_generations = generator(
                             conversation_prompts,
-                            batch_size=batch_size,
+                            batch_size=self.batch_size,
                             temperature=1.0,
                             top_p=1,
                             max_new_tokens=512,
@@ -273,7 +267,7 @@ class Experiment:
                     print()
             batch_generations = generator(
                     survey_prompts,
-                    batch_size=batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
+                    batch_size=self.batch_size,  # ここの数値はいろいろ試してみる、GPUの使用率とか見ながらかな？
                     do_sample=False,
                     max_new_tokens=50,
                     pad_token_id=generator.model.config.eos_token_id[0],
@@ -324,8 +318,12 @@ def main():
     parser.add_argument('--check', action='store_true', help='投げる前のプロンプトを確認したいときに指定')
     args = parser.parse_args()
 
+    # Configファイルの読み込み
+    with open("config.yml", "r") as file:
+        config = yaml.safe_load(file)
+
     # モデルの初期化
-    model_id = "meta-llama/Llama-3.1-8B-Instruct"  # 適切なモデルIDに変更してください
+    model_id = config["model_config"]["model_id"]
     available_device = "cuda" if torch.cuda.is_available() else "cpu"
 
     generator = transformers.pipeline(
@@ -334,6 +332,7 @@ def main():
         device=available_device,
         torch_dtype=torch.bfloat16
     )
+    batch_size = config["model_config"]["batch_size"]
 
     # これがないとバッチ処理がうまくいかない
     generator.tokenizer.pad_token_id = generator.model.config.eos_token_id[0]
@@ -381,7 +380,8 @@ def main():
         republican_personas_list,
         instruction,
         survey_question,
-        args.check
+        args.check,
+        batch_size
     )
 
     experiment.run(generator, output_dir)
