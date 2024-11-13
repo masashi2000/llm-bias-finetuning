@@ -410,7 +410,15 @@ def main():
     # 出力ディレクトリの作成
     timestamp = datetime.now().strftime('%Y%m%d_%H%M')
     instruction_filename = os.path.basename(args.instruction_file).split('.')[0]
-    output_dir = f"{timestamp}_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
+    if self.echo_kind == False:
+        output_dir = f"{timestamp}_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
+    elif self.echo_kind == "individual_level":
+        output_dir = f"{timestamp}_individual_echo_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
+    elif self.echo_kind == "party_level":
+        output_dir = f"{timestamp}_party_level_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
+    else:
+        raise ValueError("ディレクトリを保存するときの名前が決まらない")
+        
     os.makedirs(output_dir, exist_ok=True)
 
     experiment = Experiment(
