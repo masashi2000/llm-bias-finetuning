@@ -1,0 +1,878 @@
+Starting batch scripts...
+Running trial with 2 Republican agents...
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  5.86it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  5.73it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  5.74it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  6.69it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  6.31it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 29 minutes!!
+
+GUN VIOLENCE 2, 0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.78it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.66it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.66it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.98it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.86it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 28 minutes!!
+
+GUN VIOLENCE 0, 2
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.67it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.80it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.83it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.09it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.96it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 29 minutes!!
+
+GUN VIOLENCE 1, 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.57it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.73it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.82it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.97it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 28 minutes!!
+
+CLIMATE CHANGE 2, 0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.66it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.72it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.80it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.06it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.93it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 28 minutes!!
+
+CLIMATE CHANGE 0, 2
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.62it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.76it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.88it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.18it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.02it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 29 minutes!!
+
+CLIMATE CHANGE 1, 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.78it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.80it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.90it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.21it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.06it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 29 minutes!!
+
+Batch scripts completed.
+Starting batch scripts...
+RACISM 2, 0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  5.99it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  5.77it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  5.72it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  6.66it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  6.31it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 45 minutes!!
+
+RACISM 0, 2
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.59it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.71it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.79it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.95it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.85it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 53 minutes!!
+
+RACISM 1, 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.62it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.63it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.73it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.05it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.89it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 52 minutes!!
+
+ILLEGAL IMMIGRATION 2, 0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.60it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.75it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.76it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.90it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 53 minutes!!
+
+ILLEGAL IMMIGRATION 0, 2
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.76it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.68it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.80it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.13it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.97it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 44 minutes!!
+
+ILLEGAL IMMIGRATION 1, 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.37it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.61it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.70it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.98it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.82it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 36 minutes!!
+
+GUN VIOLENCE 2, 0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.05it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.25it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.49it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.61it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.49it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 46 minutes!!
+
+GUN VIOLENCE 0, 2
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.54it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.70it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.78it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.91it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.82it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 51 minutes!!
+
+GUN VIOLENCE 1, 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.48it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.63it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.75it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.09it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.91it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 51 minutes!!
+
+CLIMATE CHANGE 2, 0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.76it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.83it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.86it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.14it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.01it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 42 minutes!!
+
+CLIMATE CHANGE 0, 2
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.80it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.78it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.86it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  9.02it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.93it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 37 minutes!!
+
+CLIMATE CHANGE 1, 1
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  8.62it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  8.72it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  8.74it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.97it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  8.86it/s]
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+
+Asking Question Before Experiment is Done!
+
+
+Start Rounds Processing
+
+
+Now on Round 1:
+
+
+Now on Round 2:
+
+
+Now on Round 3:
+
+
+Now on Round 4:
+
+
+Now on Round 5:
+
+
+Now on Round 6:
+
+
+Now on Round 7:
+
+
+Now on Round 8:
+
+
+Now on Round 9:
+
+
+Now on Round 10:
+
+
+Done in 0 hours 21 minutes!!
+
+Batch scripts completed.
