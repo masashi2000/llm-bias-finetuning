@@ -47,7 +47,7 @@ def main():
 
     # Results culumns
     results_df = pd.DataFrame(columns=questions_df.columns)
-    results_df["Response"] = ""
+    results_df["Answer"] = ""
 
     # Prepare output file name
     persona_file_name = os.path.splitext(os.path.basename(args.persona_file))[0]
@@ -122,7 +122,7 @@ def main():
             # 新しい行（Series）を作成
             result_series = pd.Series({"Original Question": row["Original Question"],
                                        "Rephrased Question": row["Rephrased Question"],
-                                       "Response": generated_text})
+                                       "Answer": generated_text})
 
             # DataFrameに新しい行をconcatで追加
             results_df = pd.concat([results_df, result_series.to_frame().T], ignore_index=True)
@@ -130,7 +130,7 @@ def main():
     # Save results to csv
     results_df.to_csv(output_file, index=False, encoding='utf-8')
 
-    print(f"Responses saved to {output_file}")
+    print(f"Answers saved to {output_file}")
 
 if __name__ == "__main__":
     import time
