@@ -396,13 +396,13 @@ def main():
             names_list.append(row['name'])
 
     democrat_personas_list = []
-    with open('files/prompt_file_democrat_v2.csv', 'r', encoding='utf-8') as f:
+    with open('files/prompt_file_democrat_v3.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             democrat_personas_list.append(row['Persona'])
 
     republican_personas_list = []
-    with open('files/prompt_file_republican_v2.csv', 'r', encoding='utf-8') as f:
+    with open('files/prompt_file_republican_v3.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             republican_personas_list.append(row['Persona'])
@@ -410,11 +410,11 @@ def main():
     # 出力ディレクトリの作成
     timestamp = datetime.now().strftime('%Y%m%d_%H%M')
     instruction_filename = os.path.basename(args.instruction_file).split('.')[0]
-    if self.echo_kind == False:
+    if args.echo_kind == False:
         output_dir = f"{timestamp}_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
-    elif self.echo_kind == "individual_level":
+    elif args.echo_kind == "individual_level":
         output_dir = f"{timestamp}_individual_echo_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
-    elif self.echo_kind == "party_level":
+    elif args.echo_kind == "party_level":
         output_dir = f"{timestamp}_party_level_{instruction_filename}_Dem{args.num_democrat_agents}_Rep{args.num_republican_agents}_Round{args.round_robin_times}_Trial{args.trial_times}"
     else:
         raise ValueError("ディレクトリを保存するときの名前が決まらない")
