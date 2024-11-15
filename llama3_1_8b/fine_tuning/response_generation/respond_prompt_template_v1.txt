@@ -1,0 +1,5 @@
+Someone answered the below question. Reply to the answer.
+
+Question: {question}
+Answer:
+{answer}
