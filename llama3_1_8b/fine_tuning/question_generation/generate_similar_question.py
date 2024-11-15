@@ -2,11 +2,20 @@ import transformers
 import torch
 import yaml
 import csv
+import argparse
 
 def main():
-    # 設定ファイルのロード
-    with open("../../config.yml", "r") as file:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config_file', type=str, required=True, help='Path to the model config file')
+    args = parser.parse_args()
+
+    # Load config file
+    with open(args.config_file, "r") as file:
         config = yaml.safe_load(file)
+
+    # Initialize model
+    model_id = config["model_config"]["model_id"]
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     # モデルの初期化
     model_id = config["model_config"]["model_id"]
