@@ -1,5 +1,5 @@
-Someone answer the question below:
-Question: What do you think about racism?
-Answer: I think racism is a big problem. Because it causes inequality and divides people, leading to negative consequences for society as a whole.
+Someone answered the below question. Reply to the answer.
 
-Respond the answer.
+Question: {question}
+Answer:
+{answer}
