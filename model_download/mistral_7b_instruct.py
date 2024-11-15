@@ -46,8 +46,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # モデルとトークナイザーの読み込み
-model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1", torch_dtype=torch.bfloat16)
-tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
+model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.3", torch_dtype=torch.bfloat16)
+tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.3")
 
 # GPUが利用可能か確認し、利用可能ならモデルをGPUに移動
 device = "cuda" if torch.cuda.is_available() else "cpu"
