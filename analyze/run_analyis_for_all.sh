@@ -4,7 +4,6 @@
 
 # 引数で処理対象ディレクトリのパスを指定
 data_dir="$1"
-analyze_dir="/mnt/c/Users/sakurai/llm-bias-finetuning/analyze"
 
 # ディレクトリパスが指定されていない場合はエラーメッセージを表示して終了
 if [ -z "$data_dir" ]; then
@@ -14,8 +13,6 @@ if [ -z "$data_dir" ]; then
 fi
 
 
-# analyzeディレクトリに移動
-cd "$analyze_dir"
 
 # data_dir内の各ディレクトリをループ
 for dir in "$data_dir"/*; do
