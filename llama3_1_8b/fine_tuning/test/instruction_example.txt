@@ -1,2 +1,7 @@
-Rephrase the below question:
-Question: How do you balance Second Amendment rights with the need for gun control measures?
+Someone answer the question below:
+Question: What do you think about racism?
+Answer: I think racism is a big problem. Because it causes inequality and divides people, leading to negative consequences for society as a whole.
+
+You need to agree with the answer. Do not express opposing opinions. Follow the format below:
+
+You: Your_Response
