@@ -2,10 +2,17 @@ import transformers
 import torch
 import yaml
 import csv
+import argparse
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config_file', type=str, required=True, help='Path to config file')
+    parser.add_argument('--dem_persona_file', type=str, required=True, help='Path to democrat persona file')
+    parser.add_argument('--rep_persona_file', type=str, required=True, help='Path to republican persona file')
+    args = parser.parse_args()
+
     # 設定ファイルのロード
-    with open("config.yml", "r") as file:
+    with open(args.config_file, "r") as file:
         config = yaml.safe_load(file)
 
     # モデルの初期化
@@ -30,13 +37,13 @@ def main():
 
     # プロンプトの準備
     democrat_personas_list = []
-    with open('files/prompt_file_democrat_v2.csv', 'r', encoding='utf-8') as f:
+    with open(args.dem_persona_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             democrat_personas_list.append(row['Persona'])
 
     republican_personas_list = []
-    with open('files/prompt_file_republican_v2.csv', 'r', encoding='utf-8') as f:
+    with open(args.rep_persona_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             republican_personas_list.append(row['Persona'])
@@ -49,8 +56,8 @@ def main():
 
     for i in range(1,50):
         persona = democrat_personas_list.pop()
-        persona = "You are passionate Democrat. \nYou believe illegal immigration is not a problem.\nYou believe gun violence is a big problem.\nYou believe racism is a big problem.\nYou believe climate change is a big problem."
-        persona = ""
+        persona = "You are passionate Democrat. \nYou believe illegal immigration is not a problem.\nYou believe gun violence is a problem.\nYou believe racism is a problem.\nYou believe climate change is a problem."
+        #persona = ""
         prompt = [
                 {"role": "system", "content": persona},
                 {"role": "user", "content": instruction}
@@ -73,8 +80,8 @@ def main():
         print(generated_text)
 
         persona = republican_personas_list.pop()
-        persona = "You are passionate Republican. \nYou believe illegal immigration is a big problem.\nYou believe gun violence is not a problem.\nYou believe racism is not a problem.\nYou believe climate change is not a problem."
-        persona = "You are a helphul assistant."
+        persona = "You are passionate Republican. \nYou believe illegal immigration is a problem.\nYou believe gun violence is not a problem.\nYou believe racism is not a problem.\nYou believe climate change is not a problem."
+        #persona = "You are a helphul assistant."
         prompt = [
                 {"role": "system", "content": persona},
                 {"role": "user", "content": instruction}
