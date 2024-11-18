@@ -88,6 +88,7 @@ def main():
                         top_p=1,
                         temperature=1.0,
                         pad_token_id=generator.tokenizer.pad_token_id,
+                        max_length=1000
                     )
                     # 生成されたテキストからリフレーズされた質問を抽出
                     generated_text = output[0]['generated_text'][-1]["content"]
