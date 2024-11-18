@@ -1,0 +1,123 @@
+  0%|                                                                                                                                                                                                                                                | 0/2000 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+ 10%|███████████████████████                                                                                                                                                                                                               | 200/2000 [04:36<40:12,  1.34s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.3485, 'grad_norm': 2.6126177310943604, 'learning_rate': 2e-05, 'epoch': 0.01}
+{'loss': 1.0831, 'grad_norm': 1.5790821313858032, 'learning_rate': 4e-05, 'epoch': 0.02}
+{'loss': 1.1303, 'grad_norm': 1.7936757802963257, 'learning_rate': 6e-05, 'epoch': 0.03}
+{'loss': 1.1344, 'grad_norm': 1.6195440292358398, 'learning_rate': 8e-05, 'epoch': 0.04}
+{'loss': 1.0805, 'grad_norm': 1.672871470451355, 'learning_rate': 0.0001, 'epoch': 0.05}
+{'loss': 1.1041, 'grad_norm': 1.8837294578552246, 'learning_rate': 0.00012, 'epoch': 0.06}
+{'loss': 1.2338, 'grad_norm': 1.5092953443527222, 'learning_rate': 0.00014, 'epoch': 0.07}
+{'loss': 1.1836, 'grad_norm': 1.7140169143676758, 'learning_rate': 0.00016, 'epoch': 0.08}
+{'loss': 1.2354, 'grad_norm': 2.309987783432007, 'learning_rate': 0.00018, 'epoch': 0.09}
+{'loss': 1.2334, 'grad_norm': 1.554631233215332, 'learning_rate': 0.0002, 'epoch': 0.1}
+  return fn(*args, **kwargs)
+ 20%|██████████████████████████████████████████████                                                                                                                                                                                        | 400/2000 [09:44<37:32,  1.41s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.3463, 'grad_norm': 2.2289133071899414, 'learning_rate': 0.00019777777777777778, 'epoch': 0.11}
+{'loss': 1.2213, 'grad_norm': 1.7459841966629028, 'learning_rate': 0.00019555555555555556, 'epoch': 0.12}
+{'loss': 1.2765, 'grad_norm': 1.9502003192901611, 'learning_rate': 0.00019333333333333333, 'epoch': 0.13}
+{'loss': 1.3115, 'grad_norm': 1.7732226848602295, 'learning_rate': 0.00019111111111111114, 'epoch': 0.14}
+{'loss': 1.3107, 'grad_norm': 2.1891050338745117, 'learning_rate': 0.00018888888888888888, 'epoch': 0.15}
+{'loss': 1.2698, 'grad_norm': 1.8259416818618774, 'learning_rate': 0.0001866666666666667, 'epoch': 0.16}
+{'loss': 1.3288, 'grad_norm': 1.7045283317565918, 'learning_rate': 0.00018444444444444446, 'epoch': 0.17}
+{'loss': 1.3417, 'grad_norm': 1.6663908958435059, 'learning_rate': 0.00018222222222222224, 'epoch': 0.18}
+{'loss': 1.3374, 'grad_norm': 1.6075303554534912, 'learning_rate': 0.00018, 'epoch': 0.19}
+{'loss': 1.3158, 'grad_norm': 1.6159131526947021, 'learning_rate': 0.00017777777777777779, 'epoch': 0.2}
+  return fn(*args, **kwargs)
+ 30%|█████████████████████████████████████████████████████████████████████                                                                                                                                                                 | 600/2000 [14:54<33:14,  1.42s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2952, 'grad_norm': 1.7303948402404785, 'learning_rate': 0.00017555555555555556, 'epoch': 0.21}
+{'loss': 1.3229, 'grad_norm': 1.5235027074813843, 'learning_rate': 0.00017333333333333334, 'epoch': 0.22}
+{'loss': 1.2762, 'grad_norm': 1.5486987829208374, 'learning_rate': 0.0001711111111111111, 'epoch': 0.23}
+{'loss': 1.2619, 'grad_norm': 1.4714527130126953, 'learning_rate': 0.00016888888888888889, 'epoch': 0.24}
+{'loss': 1.3222, 'grad_norm': 1.53574800491333, 'learning_rate': 0.0001666666666666667, 'epoch': 0.25}
+{'loss': 1.3769, 'grad_norm': 2.1290221214294434, 'learning_rate': 0.00016444444444444444, 'epoch': 0.26}
+{'loss': 1.3208, 'grad_norm': 1.8149696588516235, 'learning_rate': 0.00016222222222222224, 'epoch': 0.27}
+{'loss': 1.2713, 'grad_norm': 1.4672080278396606, 'learning_rate': 0.00016, 'epoch': 0.28}
+{'loss': 1.2539, 'grad_norm': 1.862318754196167, 'learning_rate': 0.0001577777777777778, 'epoch': 0.29}
+{'loss': 1.3291, 'grad_norm': 1.5037091970443726, 'learning_rate': 0.00015555555555555556, 'epoch': 0.3}
+  return fn(*args, **kwargs)
+ 40%|████████████████████████████████████████████████████████████████████████████████████████████                                                                                                                                          | 800/2000 [19:51<24:22,  1.22s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.3144, 'grad_norm': 1.4646830558776855, 'learning_rate': 0.00015333333333333334, 'epoch': 0.31}
+{'loss': 1.2186, 'grad_norm': 1.5540525913238525, 'learning_rate': 0.0001511111111111111, 'epoch': 0.32}
+{'loss': 1.3027, 'grad_norm': 1.41536283493042, 'learning_rate': 0.0001488888888888889, 'epoch': 0.33}
+{'loss': 1.2814, 'grad_norm': 2.2711737155914307, 'learning_rate': 0.00014666666666666666, 'epoch': 0.34}
+{'loss': 1.3689, 'grad_norm': 1.774774432182312, 'learning_rate': 0.00014444444444444444, 'epoch': 0.35}
+{'loss': 1.3501, 'grad_norm': 1.762420415878296, 'learning_rate': 0.00014222222222222224, 'epoch': 0.36}
+{'loss': 1.2757, 'grad_norm': 1.7579693794250488, 'learning_rate': 0.00014, 'epoch': 0.37}
+{'loss': 1.2344, 'grad_norm': 1.3707424402236938, 'learning_rate': 0.0001377777777777778, 'epoch': 0.38}
+{'loss': 1.2752, 'grad_norm': 1.4499166011810303, 'learning_rate': 0.00013555555555555556, 'epoch': 0.39}
+{'loss': 1.3197, 'grad_norm': 1.7597041130065918, 'learning_rate': 0.00013333333333333334, 'epoch': 0.4}
+  return fn(*args, **kwargs)
+ 50%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                                                                                                  | 1000/2000 [24:34<20:11,  1.21s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.3002, 'grad_norm': 1.2796059846878052, 'learning_rate': 0.00013111111111111111, 'epoch': 0.41}
+{'loss': 1.2218, 'grad_norm': 1.7685519456863403, 'learning_rate': 0.00012888888888888892, 'epoch': 0.42}
+{'loss': 1.2915, 'grad_norm': 1.7187786102294922, 'learning_rate': 0.00012666666666666666, 'epoch': 0.43}
+{'loss': 1.2845, 'grad_norm': 1.6161037683486938, 'learning_rate': 0.00012444444444444444, 'epoch': 0.44}
+{'loss': 1.2039, 'grad_norm': 1.522626280784607, 'learning_rate': 0.00012222222222222224, 'epoch': 0.45}
+{'loss': 1.2086, 'grad_norm': 1.5788631439208984, 'learning_rate': 0.00012, 'epoch': 0.46}
+{'loss': 1.3128, 'grad_norm': 1.3895596265792847, 'learning_rate': 0.00011777777777777779, 'epoch': 0.47}
+{'loss': 1.2379, 'grad_norm': 1.4452544450759888, 'learning_rate': 0.00011555555555555555, 'epoch': 0.48}
+{'loss': 1.2239, 'grad_norm': 1.6280332803726196, 'learning_rate': 0.00011333333333333334, 'epoch': 0.49}
+{'loss': 1.1652, 'grad_norm': 1.6859849691390991, 'learning_rate': 0.00011111111111111112, 'epoch': 0.5}
+  return fn(*args, **kwargs)
+ 60%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                                                           | 1200/2000 [29:21<18:01,  1.35s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2117, 'grad_norm': 1.4426828622817993, 'learning_rate': 0.00010888888888888889, 'epoch': 0.51}
+{'loss': 1.2134, 'grad_norm': 1.267696738243103, 'learning_rate': 0.00010666666666666667, 'epoch': 0.52}
+{'loss': 1.256, 'grad_norm': 1.5331721305847168, 'learning_rate': 0.00010444444444444445, 'epoch': 0.53}
+{'loss': 1.2422, 'grad_norm': 1.5365358591079712, 'learning_rate': 0.00010222222222222222, 'epoch': 0.54}
+{'loss': 1.2526, 'grad_norm': 1.4171048402786255, 'learning_rate': 0.0001, 'epoch': 0.55}
+{'loss': 1.2184, 'grad_norm': 1.4188501834869385, 'learning_rate': 9.777777777777778e-05, 'epoch': 0.56}
+{'loss': 1.2485, 'grad_norm': 1.4238537549972534, 'learning_rate': 9.555555555555557e-05, 'epoch': 0.57}
+{'loss': 1.1477, 'grad_norm': 1.376735806465149, 'learning_rate': 9.333333333333334e-05, 'epoch': 0.58}
+{'loss': 1.2668, 'grad_norm': 1.3734759092330933, 'learning_rate': 9.111111111111112e-05, 'epoch': 0.59}
+{'loss': 1.1589, 'grad_norm': 1.3158953189849854, 'learning_rate': 8.888888888888889e-05, 'epoch': 0.6}
+  return fn(*args, **kwargs)
+ 70%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                                    | 1400/2000 [36:20<13:52,  1.39s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2437, 'grad_norm': 1.6368056535720825, 'learning_rate': 8.666666666666667e-05, 'epoch': 0.61}
+{'loss': 1.2517, 'grad_norm': 1.539453148841858, 'learning_rate': 8.444444444444444e-05, 'epoch': 0.62}
+{'loss': 1.2291, 'grad_norm': 1.6373515129089355, 'learning_rate': 8.222222222222222e-05, 'epoch': 0.63}
+{'loss': 1.2116, 'grad_norm': 1.2159785032272339, 'learning_rate': 8e-05, 'epoch': 0.64}
+{'loss': 1.1902, 'grad_norm': 1.3804041147232056, 'learning_rate': 7.777777777777778e-05, 'epoch': 0.65}
+{'loss': 1.1792, 'grad_norm': 1.5078171491622925, 'learning_rate': 7.555555555555556e-05, 'epoch': 0.66}
+{'loss': 1.2875, 'grad_norm': 1.5470049381256104, 'learning_rate': 7.333333333333333e-05, 'epoch': 0.67}
+{'loss': 1.1665, 'grad_norm': 1.5445631742477417, 'learning_rate': 7.111111111111112e-05, 'epoch': 0.68}
+{'loss': 1.1199, 'grad_norm': 1.3205320835113525, 'learning_rate': 6.88888888888889e-05, 'epoch': 0.69}
+{'loss': 1.1984, 'grad_norm': 1.6253035068511963, 'learning_rate': 6.666666666666667e-05, 'epoch': 0.7}
+  return fn(*args, **kwargs)
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                             | 1600/2000 [41:34<08:24,  1.26s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.1615, 'grad_norm': 1.1622226238250732, 'learning_rate': 6.444444444444446e-05, 'epoch': 0.71}
+{'loss': 1.1788, 'grad_norm': 1.255171775817871, 'learning_rate': 6.222222222222222e-05, 'epoch': 0.72}
+{'loss': 1.2444, 'grad_norm': 1.6092525720596313, 'learning_rate': 6e-05, 'epoch': 0.73}
+{'loss': 1.1807, 'grad_norm': 1.2374415397644043, 'learning_rate': 5.7777777777777776e-05, 'epoch': 0.74}
+{'loss': 1.152, 'grad_norm': 1.4417182207107544, 'learning_rate': 5.555555555555556e-05, 'epoch': 0.75}
+{'loss': 1.1498, 'grad_norm': 1.3221133947372437, 'learning_rate': 5.333333333333333e-05, 'epoch': 0.76}
+{'loss': 1.1657, 'grad_norm': 1.3478823900222778, 'learning_rate': 5.111111111111111e-05, 'epoch': 0.77}
+{'loss': 1.1265, 'grad_norm': 1.4267206192016602, 'learning_rate': 4.888888888888889e-05, 'epoch': 0.78}
+{'loss': 1.2012, 'grad_norm': 1.4276779890060425, 'learning_rate': 4.666666666666667e-05, 'epoch': 0.79}
+{'loss': 1.1214, 'grad_norm': 1.586453914642334, 'learning_rate': 4.4444444444444447e-05, 'epoch': 0.8}
+  return fn(*args, **kwargs)
+ 90%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                       | 1800/2000 [46:46<04:30,  1.35s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.1204, 'grad_norm': 1.5431801080703735, 'learning_rate': 4.222222222222222e-05, 'epoch': 0.81}
+{'loss': 1.1346, 'grad_norm': 1.3494715690612793, 'learning_rate': 4e-05, 'epoch': 0.82}
+{'loss': 1.1089, 'grad_norm': 1.562083125114441, 'learning_rate': 3.777777777777778e-05, 'epoch': 0.83}
+{'loss': 1.1574, 'grad_norm': 1.1939371824264526, 'learning_rate': 3.555555555555556e-05, 'epoch': 0.84}
+{'loss': 1.0702, 'grad_norm': 1.280076503753662, 'learning_rate': 3.3333333333333335e-05, 'epoch': 0.85}
+{'loss': 1.1022, 'grad_norm': 1.4243041276931763, 'learning_rate': 3.111111111111111e-05, 'epoch': 0.86}
+{'loss': 1.1257, 'grad_norm': 1.21430242061615, 'learning_rate': 2.8888888888888888e-05, 'epoch': 0.87}
+{'loss': 1.1304, 'grad_norm': 1.345692753791809, 'learning_rate': 2.6666666666666667e-05, 'epoch': 0.88}
+{'loss': 1.1105, 'grad_norm': 1.450708031654358, 'learning_rate': 2.4444444444444445e-05, 'epoch': 0.89}
+{'loss': 1.0823, 'grad_norm': 1.2293099164962769, 'learning_rate': 2.2222222222222223e-05, 'epoch': 0.9}
+  return fn(*args, **kwargs)
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2000/2000 [52:20<00:00,  1.57s/it]
+{'loss': 1.091, 'grad_norm': 1.5289627313613892, 'learning_rate': 2e-05, 'epoch': 0.91}
+{'loss': 1.1083, 'grad_norm': 1.2889642715454102, 'learning_rate': 1.777777777777778e-05, 'epoch': 0.92}
+{'loss': 1.1675, 'grad_norm': 1.4223662614822388, 'learning_rate': 1.5555555555555555e-05, 'epoch': 0.93}
+{'loss': 1.161, 'grad_norm': 1.7754079103469849, 'learning_rate': 1.3333333333333333e-05, 'epoch': 0.94}
+{'loss': 1.1179, 'grad_norm': 1.4313695430755615, 'learning_rate': 1.1111111111111112e-05, 'epoch': 0.95}
+{'loss': 1.0709, 'grad_norm': 1.108931303024292, 'learning_rate': 8.88888888888889e-06, 'epoch': 0.96}
+{'loss': 1.1252, 'grad_norm': 1.2454984188079834, 'learning_rate': 6.666666666666667e-06, 'epoch': 0.97}
+{'loss': 1.0927, 'grad_norm': 1.4624134302139282, 'learning_rate': 4.444444444444445e-06, 'epoch': 0.98}
+{'loss': 1.1222, 'grad_norm': 1.316874384880066, 'learning_rate': 2.2222222222222225e-06, 'epoch': 0.99}
+{'loss': 1.1016, 'grad_norm': 1.351274847984314, 'learning_rate': 0.0, 'epoch': 1.0}
+{'train_runtime': 3141.7422, 'train_samples_per_second': 0.637, 'train_steps_per_second': 0.637, 'train_loss': 1.215256417274475, 'epoch': 1.0}

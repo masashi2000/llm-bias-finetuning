@@ -1,0 +1,16 @@
+{"time":"2024-11-18T17:34:40.486621632+09:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-18T17:34:40.486829091+09:00","level":"INFO","msg":"created symlink","path":"/mnt/c/Users/sakurai/llm-bias-finetuning/llama3_1_8b/fine_tuning/5_sft_train/wandb/run-20241118_173440-ak08iyc6/logs/debug-core.log"}
+{"time":"2024-11-18T17:34:40.610238516+09:00","level":"INFO","msg":"created new stream","id":"ak08iyc6"}
+{"time":"2024-11-18T17:34:40.610446429+09:00","level":"INFO","msg":"stream: started","id":"ak08iyc6"}
+{"time":"2024-11-18T17:34:40.610484847+09:00","level":"INFO","msg":"writer: Do: started","stream_id":"ak08iyc6"}
+{"time":"2024-11-18T17:34:40.610512269+09:00","level":"INFO","msg":"sender: started","stream_id":"ak08iyc6"}
+{"time":"2024-11-18T17:34:40.610520347+09:00","level":"INFO","msg":"handler: started","stream_id":"ak08iyc6"}
+{"time":"2024-11-18T17:34:40.955919039+09:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-18T18:24:38.887000401+09:00","level":"INFO","msg":"stream: closing","id":"ak08iyc6"}
+{"time":"2024-11-18T18:24:38.887102447+09:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-18T18:24:38.887962658+09:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-18T18:24:39.929513522+09:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-11-18T18:24:40.471973152+09:00","level":"INFO","msg":"handler: closed","stream_id":"ak08iyc6"}
+{"time":"2024-11-18T18:24:40.472056268+09:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ak08iyc6"}
+{"time":"2024-11-18T18:24:40.47209069+09:00","level":"INFO","msg":"sender: closed","stream_id":"ak08iyc6"}
+{"time":"2024-11-18T18:24:40.472969145+09:00","level":"INFO","msg":"stream: closed","id":"ak08iyc6"}

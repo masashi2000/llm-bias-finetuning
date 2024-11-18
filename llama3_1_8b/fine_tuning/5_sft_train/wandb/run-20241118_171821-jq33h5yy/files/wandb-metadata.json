@@ -1,0 +1,48 @@
+{
+  "os": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python": "3.12.7",
+  "startedAt": "2024-11-18T08:18:21.516719Z",
+  "args": [
+    "--config_file",
+    "../../config.yml",
+    "--dataset_file",
+    "../4_sft_dataset_generation/questions_rep_v3_dem_v3_respond_prompt_template_v2_questions_dem_v3_rep_v3_respond_prompt_template_v2.json"
+  ],
+  "program": "/mnt/c/Users/sakurai/llm-bias-finetuning/llama3_1_8b/fine_tuning/5_sft_train/run_sft_train.py",
+  "codePath": "llama3_1_8b/fine_tuning/5_sft_train/run_sft_train.py",
+  "git": {
+    "remote": "https://github.com/masashi2000/llm-bias-finetuning.git",
+    "commit": "5feb89603ae581b0e76ddd961bb79bc798ee7776"
+  },
+  "email": "s12701350406@gmail.com",
+  "root": "/mnt/c/Users/sakurai/llm-bias-finetuning/llama3_1_8b/fine_tuning/5_sft_train",
+  "host": "DESKTOP-SEA110Q",
+  "username": "sakurai_wsl",
+  "executable": "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/bin/python",
+  "codePathLocal": "run_sft_train.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 16,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1081101176832",
+      "used": "318544830464"
+    }
+  },
+  "memory": {
+    "total": "67272749056"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 16
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3090",
+      "memoryTotal": "25769803776",
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.7"
+}

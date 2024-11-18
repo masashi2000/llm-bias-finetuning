@@ -1,0 +1,239 @@
+  0%|                                                                                                                                           | 0/2000 [00:00<?, ?it/s]`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+  return fn(*args, **kwargs)
+ 10%|████████████▉                                                                                                                    | 200/2000 [04:44<40:21,  1.35s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2961, 'grad_norm': 2.1600465774536133, 'learning_rate': 2e-05, 'epoch': 0.01}
+{'loss': 1.1018, 'grad_norm': 1.981982707977295, 'learning_rate': 4e-05, 'epoch': 0.02}
+{'loss': 1.0506, 'grad_norm': 1.9411706924438477, 'learning_rate': 6e-05, 'epoch': 0.03}
+{'loss': 1.0566, 'grad_norm': 1.5468933582305908, 'learning_rate': 8e-05, 'epoch': 0.04}
+{'loss': 1.071, 'grad_norm': 1.8273402452468872, 'learning_rate': 0.0001, 'epoch': 0.05}
+{'loss': 1.1603, 'grad_norm': 1.5276668071746826, 'learning_rate': 0.00012, 'epoch': 0.06}
+{'loss': 1.1179, 'grad_norm': 1.537695288658142, 'learning_rate': 0.00014, 'epoch': 0.07}
+{'loss': 1.1885, 'grad_norm': 1.8246467113494873, 'learning_rate': 0.00016, 'epoch': 0.08}
+{'loss': 1.2252, 'grad_norm': 1.958874225616455, 'learning_rate': 0.00018, 'epoch': 0.09}
+{'loss': 1.2214, 'grad_norm': 1.7180664539337158, 'learning_rate': 0.0002, 'epoch': 0.1}
+  return fn(*args, **kwargs)
+ 20%|█████████████████████████▊                                                                                                       | 400/2000 [09:47<41:20,  1.55s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2543, 'grad_norm': 2.312262535095215, 'learning_rate': 0.00019777777777777778, 'epoch': 0.11}
+{'loss': 1.3382, 'grad_norm': 1.840850591659546, 'learning_rate': 0.00019555555555555556, 'epoch': 0.12}
+{'loss': 1.2688, 'grad_norm': 1.7226239442825317, 'learning_rate': 0.00019333333333333333, 'epoch': 0.13}
+{'loss': 1.2967, 'grad_norm': 1.8393861055374146, 'learning_rate': 0.00019111111111111114, 'epoch': 0.14}
+{'loss': 1.3397, 'grad_norm': 1.5922355651855469, 'learning_rate': 0.00018888888888888888, 'epoch': 0.15}
+{'loss': 1.2843, 'grad_norm': 1.628889799118042, 'learning_rate': 0.0001866666666666667, 'epoch': 0.16}
+{'loss': 1.3125, 'grad_norm': 1.534231424331665, 'learning_rate': 0.00018444444444444446, 'epoch': 0.17}
+{'loss': 1.2985, 'grad_norm': 1.8840922117233276, 'learning_rate': 0.00018222222222222224, 'epoch': 0.18}
+{'loss': 1.3308, 'grad_norm': 1.699663519859314, 'learning_rate': 0.00018, 'epoch': 0.19}
+{'loss': 1.2822, 'grad_norm': 1.3963332176208496, 'learning_rate': 0.00017777777777777779, 'epoch': 0.2}
+  return fn(*args, **kwargs)
+ 30%|██████████████████████████████████████▋                                                                                          | 600/2000 [14:49<33:10,  1.42s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.318, 'grad_norm': 1.7197015285491943, 'learning_rate': 0.00017555555555555556, 'epoch': 0.21}
+{'loss': 1.292, 'grad_norm': 1.5385715961456299, 'learning_rate': 0.00017333333333333334, 'epoch': 0.22}
+{'loss': 1.31, 'grad_norm': 1.7647961378097534, 'learning_rate': 0.0001711111111111111, 'epoch': 0.23}
+{'loss': 1.2868, 'grad_norm': 2.1889235973358154, 'learning_rate': 0.00016888888888888889, 'epoch': 0.24}
+{'loss': 1.2983, 'grad_norm': 1.3609957695007324, 'learning_rate': 0.0001666666666666667, 'epoch': 0.25}
+{'loss': 1.2719, 'grad_norm': 1.6728204488754272, 'learning_rate': 0.00016444444444444444, 'epoch': 0.26}
+{'loss': 1.3139, 'grad_norm': 1.5712740421295166, 'learning_rate': 0.00016222222222222224, 'epoch': 0.27}
+{'loss': 1.2962, 'grad_norm': 1.6094269752502441, 'learning_rate': 0.00016, 'epoch': 0.28}
+{'loss': 1.2925, 'grad_norm': 1.7148802280426025, 'learning_rate': 0.0001577777777777778, 'epoch': 0.29}
+{'loss': 1.2939, 'grad_norm': 1.6772853136062622, 'learning_rate': 0.00015555555555555556, 'epoch': 0.3}
+  return fn(*args, **kwargs)
+ 40%|███████████████████████████████████████████████████▌                                                                             | 800/2000 [19:53<25:02,  1.25s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.151, 'grad_norm': 1.3894758224487305, 'learning_rate': 0.00015333333333333334, 'epoch': 0.31}
+{'loss': 1.2451, 'grad_norm': 1.4199628829956055, 'learning_rate': 0.0001511111111111111, 'epoch': 0.32}
+{'loss': 1.3055, 'grad_norm': 1.6181421279907227, 'learning_rate': 0.0001488888888888889, 'epoch': 0.33}
+{'loss': 1.2818, 'grad_norm': 1.2353148460388184, 'learning_rate': 0.00014666666666666666, 'epoch': 0.34}
+{'loss': 1.3337, 'grad_norm': 1.546093463897705, 'learning_rate': 0.00014444444444444444, 'epoch': 0.35}
+{'loss': 1.2301, 'grad_norm': 1.5727100372314453, 'learning_rate': 0.00014222222222222224, 'epoch': 0.36}
+{'loss': 1.1958, 'grad_norm': 1.3320082426071167, 'learning_rate': 0.00014, 'epoch': 0.37}
+{'loss': 1.2972, 'grad_norm': 1.4849416017532349, 'learning_rate': 0.0001377777777777778, 'epoch': 0.38}
+{'loss': 1.3311, 'grad_norm': 1.7009165287017822, 'learning_rate': 0.00013555555555555556, 'epoch': 0.39}
+{'loss': 1.3439, 'grad_norm': 1.7051678895950317, 'learning_rate': 0.00013333333333333334, 'epoch': 0.4}
+  return fn(*args, **kwargs)
+ 50%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                                                                                         | 1000/2000 [25:04<21:51,  1.31s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2162, 'grad_norm': 1.595293402671814, 'learning_rate': 0.00013111111111111111, 'epoch': 0.41}
+{'loss': 1.315, 'grad_norm': 1.333678126335144, 'learning_rate': 0.00012888888888888892, 'epoch': 0.42}
+{'loss': 1.2488, 'grad_norm': 1.6218129396438599, 'learning_rate': 0.00012666666666666666, 'epoch': 0.43}
+{'loss': 1.3033, 'grad_norm': 1.642299771308899, 'learning_rate': 0.00012444444444444444, 'epoch': 0.44}
+{'loss': 1.223, 'grad_norm': 1.392806053161621, 'learning_rate': 0.00012222222222222224, 'epoch': 0.45}
+{'loss': 1.3218, 'grad_norm': 1.5686562061309814, 'learning_rate': 0.00012, 'epoch': 0.46}
+{'loss': 1.2352, 'grad_norm': 1.3003737926483154, 'learning_rate': 0.00011777777777777779, 'epoch': 0.47}
+{'loss': 1.2212, 'grad_norm': 1.4902507066726685, 'learning_rate': 0.00011555555555555555, 'epoch': 0.48}
+{'loss': 1.2826, 'grad_norm': 1.569287657737732, 'learning_rate': 0.00011333333333333334, 'epoch': 0.49}
+{'loss': 1.303, 'grad_norm': 1.617509365081787, 'learning_rate': 0.00011111111111111112, 'epoch': 0.5}
+  return fn(*args, **kwargs)
+ 60%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                                                                    | 1200/2000 [30:24<19:43,  1.48s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.2861, 'grad_norm': 1.622655987739563, 'learning_rate': 0.00010888888888888889, 'epoch': 0.51}
+{'loss': 1.1799, 'grad_norm': 1.3801416158676147, 'learning_rate': 0.00010666666666666667, 'epoch': 0.52}
+{'loss': 1.2365, 'grad_norm': 1.6237919330596924, 'learning_rate': 0.00010444444444444445, 'epoch': 0.53}
+{'loss': 1.2201, 'grad_norm': 1.5976845026016235, 'learning_rate': 0.00010222222222222222, 'epoch': 0.54}
+{'loss': 1.1684, 'grad_norm': 1.3268094062805176, 'learning_rate': 0.0001, 'epoch': 0.55}
+{'loss': 1.2096, 'grad_norm': 1.5086638927459717, 'learning_rate': 9.777777777777778e-05, 'epoch': 0.56}
+{'loss': 1.2219, 'grad_norm': 1.5215398073196411, 'learning_rate': 9.555555555555557e-05, 'epoch': 0.57}
+{'loss': 1.2413, 'grad_norm': 1.7306387424468994, 'learning_rate': 9.333333333333334e-05, 'epoch': 0.58}
+{'loss': 1.2188, 'grad_norm': 1.3729180097579956, 'learning_rate': 9.111111111111112e-05, 'epoch': 0.59}
+{'loss': 1.2182, 'grad_norm': 1.337663173675537, 'learning_rate': 8.888888888888889e-05, 'epoch': 0.6}
+  return fn(*args, **kwargs)
+ 70%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                               | 1400/2000 [35:42<13:41,  1.37s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.1973, 'grad_norm': 1.2947478294372559, 'learning_rate': 8.666666666666667e-05, 'epoch': 0.61}
+{'loss': 1.2087, 'grad_norm': 1.5169261693954468, 'learning_rate': 8.444444444444444e-05, 'epoch': 0.62}
+{'loss': 1.1847, 'grad_norm': 1.5365206003189087, 'learning_rate': 8.222222222222222e-05, 'epoch': 0.63}
+{'loss': 1.2517, 'grad_norm': 1.402671217918396, 'learning_rate': 8e-05, 'epoch': 0.64}
+{'loss': 1.1976, 'grad_norm': 1.2797988653182983, 'learning_rate': 7.777777777777778e-05, 'epoch': 0.65}
+{'loss': 1.1533, 'grad_norm': 1.2499744892120361, 'learning_rate': 7.555555555555556e-05, 'epoch': 0.66}
+{'loss': 1.1517, 'grad_norm': 1.5096334218978882, 'learning_rate': 7.333333333333333e-05, 'epoch': 0.67}
+{'loss': 1.2075, 'grad_norm': 1.532362699508667, 'learning_rate': 7.111111111111112e-05, 'epoch': 0.68}
+{'loss': 1.2077, 'grad_norm': 1.370627522468567, 'learning_rate': 6.88888888888889e-05, 'epoch': 0.69}
+{'loss': 1.1226, 'grad_norm': 1.4242465496063232, 'learning_rate': 6.666666666666667e-05, 'epoch': 0.7}
+  return fn(*args, **kwargs)
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                          | 1600/2000 [40:44<07:39,  1.15s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.1956, 'grad_norm': 1.4346286058425903, 'learning_rate': 6.444444444444446e-05, 'epoch': 0.71}
+{'loss': 1.1406, 'grad_norm': 1.6471296548843384, 'learning_rate': 6.222222222222222e-05, 'epoch': 0.72}
+{'loss': 1.0945, 'grad_norm': 1.2268184423446655, 'learning_rate': 6e-05, 'epoch': 0.73}
+{'loss': 1.1334, 'grad_norm': 1.2219997644424438, 'learning_rate': 5.7777777777777776e-05, 'epoch': 0.74}
+{'loss': 1.1802, 'grad_norm': 1.2526079416275024, 'learning_rate': 5.555555555555556e-05, 'epoch': 0.75}
+{'loss': 1.1679, 'grad_norm': 1.5616976022720337, 'learning_rate': 5.333333333333333e-05, 'epoch': 0.76}
+{'loss': 1.1549, 'grad_norm': 1.3284908533096313, 'learning_rate': 5.111111111111111e-05, 'epoch': 0.77}
+{'loss': 1.1486, 'grad_norm': 1.3232135772705078, 'learning_rate': 4.888888888888889e-05, 'epoch': 0.78}
+{'loss': 1.1085, 'grad_norm': 1.1855548620224, 'learning_rate': 4.666666666666667e-05, 'epoch': 0.79}
+{'loss': 1.0961, 'grad_norm': 1.8772270679473877, 'learning_rate': 4.4444444444444447e-05, 'epoch': 0.8}
+  return fn(*args, **kwargs)
+ 90%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                     | 1800/2000 [45:35<04:10,  1.25s/it]/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py:632: UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+{'loss': 1.1462, 'grad_norm': 1.491639256477356, 'learning_rate': 4.222222222222222e-05, 'epoch': 0.81}
+{'loss': 1.1491, 'grad_norm': 1.3642401695251465, 'learning_rate': 4e-05, 'epoch': 0.82}
+{'loss': 1.1268, 'grad_norm': 1.5784207582473755, 'learning_rate': 3.777777777777778e-05, 'epoch': 0.83}
+{'loss': 1.1049, 'grad_norm': 1.3428730964660645, 'learning_rate': 3.555555555555556e-05, 'epoch': 0.84}
+{'loss': 1.1163, 'grad_norm': 1.2586524486541748, 'learning_rate': 3.3333333333333335e-05, 'epoch': 0.85}
+{'loss': 1.1342, 'grad_norm': 1.2169361114501953, 'learning_rate': 3.111111111111111e-05, 'epoch': 0.86}
+{'loss': 1.1284, 'grad_norm': 1.2571760416030884, 'learning_rate': 2.8888888888888888e-05, 'epoch': 0.87}
+{'loss': 1.0693, 'grad_norm': 1.3019260168075562, 'learning_rate': 2.6666666666666667e-05, 'epoch': 0.88}
+{'loss': 1.1099, 'grad_norm': 1.4419806003570557, 'learning_rate': 2.4444444444444445e-05, 'epoch': 0.89}
+{'loss': 1.0936, 'grad_norm': 1.4672454595565796, 'learning_rate': 2.2222222222222223e-05, 'epoch': 0.9}
+  return fn(*args, **kwargs)
+ 99%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍  | 1976/2000 [49:57<00:32,  1.34s/it]Traceback (most recent call last):
+{'loss': 1.1284, 'grad_norm': 1.3260903358459473, 'learning_rate': 2e-05, 'epoch': 0.91}
+{'loss': 1.1367, 'grad_norm': 1.2443960905075073, 'learning_rate': 1.777777777777778e-05, 'epoch': 0.92}
+{'loss': 1.169, 'grad_norm': 1.4535479545593262, 'learning_rate': 1.5555555555555555e-05, 'epoch': 0.93}
+{'loss': 1.103, 'grad_norm': 1.6186048984527588, 'learning_rate': 1.3333333333333333e-05, 'epoch': 0.94}
+{'loss': 1.0905, 'grad_norm': 1.2748051881790161, 'learning_rate': 1.1111111111111112e-05, 'epoch': 0.95}
+{'loss': 1.0702, 'grad_norm': 1.2731941938400269, 'learning_rate': 8.88888888888889e-06, 'epoch': 0.96}
+{'loss': 1.0887, 'grad_norm': 1.801497220993042, 'learning_rate': 6.666666666666667e-06, 'epoch': 0.97}
+{'loss': 1.082, 'grad_norm': 1.2221702337265015, 'learning_rate': 4.444444444444445e-06, 'epoch': 0.98}
+  File "/mnt/c/Users/sakurai/llm-bias-finetuning/llama3_1_8b/fine_tuning/5_sft_train/run_sft_train.py", line 120, in <module>
+    run_training(run_name=run_name, model=model, tokenizer=tokenizer, lora_r=r,
+  File "/mnt/c/Users/sakurai/llm-bias-finetuning/llama3_1_8b/fine_tuning/5_sft_train/run_sft_train.py", line 91, in run_training
+    trainer.train()
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/trainer.py", line 2481, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/trainer.py", line 3579, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/trainer.py", line 3633, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/accelerate/utils/operations.py", line 820, in forward
+    return model_forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/accelerate/utils/operations.py", line 808, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/peft/peft_model.py", line 1644, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/peft/tuners/tuners_utils.py", line 197, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 1190, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 933, in forward
+    layer_outputs = self._gradient_checkpointing_func(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_compile.py", line 32, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/utils/checkpoint.py", line 489, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/utils/checkpoint.py", line 264, in forward
+    outputs = run_function(*args)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 692, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/transformers/models/llama/modeling_llama.py", line 258, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/peft/tuners/lora/bnb.py", line 489, in forward
+    output = lora_B(lora_A(dropout(x))) * scaling
+                           ^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sakurai_wsl/miniconda3/envs/llm_bias_2/lib/python3.12/site-packages/torch/nn/modules/dropout.py", line 69, in forward
+    def forward(self, input: Tensor) -> Tensor:
+
+KeyboardInterrupt
