@@ -97,7 +97,7 @@ class Session:
 
 class Experiment:
     def __init__(self, trial_times, round_robin_times, num_democrat_agents, num_republican_agents,
-                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check, batch_size, echo_kind):
+                 names_list, democrat_personas_list, republican_personas_list, instruction, survey_question, check, batch_size, echo_kind, max_length):
         self.trial_times = trial_times
         self.round_robin_times = round_robin_times
         self.num_democrat_agents = num_democrat_agents
@@ -113,6 +113,7 @@ class Experiment:
         self.check = check
         self.batch_size = batch_size
         self.echo_kind = echo_kind
+        self.max_length = max_length
 
     def run(self, generator, output_dir):
         all_survey_results = []
@@ -198,6 +199,7 @@ class Experiment:
                 do_sample=False,
                 max_new_tokens=50,
                 pad_token_id=generator.tokenizer.pad_token_id,
+                max_length=self.max_length
                 )
 
         # 結果の処理
@@ -262,7 +264,8 @@ class Experiment:
                             top_p=1,
                             max_new_tokens=512,
                             pad_token_id=generator.tokenizer.pad_token_id,
-                            do_sample=True
+                            do_sample=True,
+                            max_length=self.max_length
                             )
 
                     # 結果の処理と会話履歴の更新
@@ -307,6 +310,7 @@ class Experiment:
                     do_sample=False,
                     max_new_tokens=50,
                     pad_token_id=generator.tokenizer.pad_token_id,
+                    max_length=self.max_length
                     )
 
             # 結果の処理
@@ -396,13 +400,13 @@ def main():
             names_list.append(row['name'])
 
     democrat_personas_list = []
-    with open('files/prompt_file_democrat_v3.csv', 'r', encoding='utf-8') as f:
+    with open('files/prompt_file_democrat_v4.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             democrat_personas_list.append(row['Persona'])
 
     republican_personas_list = []
-    with open('files/prompt_file_republican_v3.csv', 'r', encoding='utf-8') as f:
+    with open('files/prompt_file_republican_v4.csv', 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             republican_personas_list.append(row['Persona'])
@@ -434,6 +438,8 @@ def main():
         args.check,
         batch_size,
         args.echo_kind
+        config["model_config"]["max_length"]
+
     )
 
     experiment.run(generator, output_dir)
