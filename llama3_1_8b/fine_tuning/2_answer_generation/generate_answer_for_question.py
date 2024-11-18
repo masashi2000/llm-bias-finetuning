@@ -97,17 +97,17 @@ def main():
                 {"role": "system", "content": persona},
                 {"role": "user", "content": row["Rephrased Question"]}
             ]
-            for _ in range(20)  # Generate 20 identical prompts,
+            for _ in range(10)  # Generate 20 identical prompts,
         ]
         # バッチ処理していく llama3.1-8bなら20ぐらいが限界に見えた
         outputs = generator(
             prompts,
-            batch_size=20,
+            batch_size=10,
             do_sample=True,
-            max_new_tokens=1000,
             top_p=1,
             temperature=1.0,
             pad_token_id=generator.tokenizer.pad_token_id,
+            max_length=5000
         )
         # Process the outputs and store the generated text
         for output in outputs:
