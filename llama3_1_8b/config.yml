@@ -1,3 +1,8 @@
 model_config:
   model_id: "meta-llama/Llama-3.1-8B-Instruct"
   batch_size: 2
+  max_length: 10000 # 一人あたりの発言を100 tokenとしたときにround 10, 2 agentsなら大体2000tokenあれば十分だと思うけど念のため10000tokenにした。
+  sft_max_seq_length: 2000 #大体answerとreponseセットで2000 tokenぐらいだったから3000にセットしておけば安全ではないか？
+  sft_batch_size: 1
+  sft_model_base_dir: "/mnt/d/models/llama3_1_8b/sft" # これにtime_datsetnameをつけたものに保存する。
+  
